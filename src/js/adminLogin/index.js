@@ -1,3 +1,4 @@
+import "@style/adminLogin/admin.css"
 import {handleAuthErrors, storeUser, storeUserPermissions} from "../api/auth.js";
 import {auth, db} from "../api/firebase.js";
 import {get, ref} from "firebase/database";
