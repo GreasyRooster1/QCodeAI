@@ -1,3 +1,6 @@
+import "@style/global.css"
+import "@style/login/login.css"
+
 import { signInWithEmailAndPassword } from "firebase/auth";
 import {auth, db} from "../api/firebase.js";
 import {extractEmailFromUsername, handleAuthErrors, storeUser} from "../api/auth.js";

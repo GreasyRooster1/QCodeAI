@@ -17,6 +17,13 @@ export default defineConfig({
             input: {
                 main: resolve(__dirname, '/index.html'),
                 login: resolve(__dirname, '/login.html'),
+                adminLogin: resolve(__dirname, '/adminLogin.html'),
+                editor: resolve(__dirname, '/editor.html'),
+                editProfile: resolve(__dirname, '/editProfile.html'),
+                exec: resolve(__dirname, '/exec.html'),
+                lessons: resolve(__dirname, '/lessons.html'),
+                shareBoard: resolve(__dirname, '/shareBoard.html'),
+                sharedProject: resolve(__dirname, '/sharedProject.html'),
             },
         }
     },
