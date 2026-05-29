@@ -1,6 +1,6 @@
 import "@style/global.css"
 import "@style/adminConsole/adminConsole.css"
-import "@style/adminConsole/dataLists.css.css"
+import "@style/adminConsole/dataLists.css"
 import "@style/adminConsole/panes/lessons.css"
 import "@style/adminConsole/panes/users.css"
 import "@style/adminConsole/panes/badge.css"
