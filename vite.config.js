@@ -7,7 +7,7 @@ export default defineConfig({
     root: './src',
 
     // Base public path when served in production
-    base: '/QCodeAI',
+    base: '/',
 
     build: {
         // Output directory for the production build
