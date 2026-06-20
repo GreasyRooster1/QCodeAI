@@ -29,8 +29,9 @@ const announcementsDisplay = document.querySelector(".announcements-display");
 ProjectLinkElement.register()
 
 function init(){
-    loadTheme()
+    document.body.style.display = "block";
     lockPageToAuth()
+    loadTheme()
 
     initNavbar({
         hideHome:true,
@@ -48,6 +49,7 @@ function init(){
     initShareBoard();
     // setupFeaturedProject()
     setupNewProjectEvents()
+
 }
 
 window.onload = init;

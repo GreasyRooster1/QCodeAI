@@ -23,12 +23,16 @@ import {StepElement} from "../api/customElements.js";
 import {ConsoleLogElement} from "../api/customElements.js";
 import {loadTheme} from "../api/theme.js";
 import {getAuthSessionToken} from "./utils/fileServerAPI.ts";
+import {lockPageToAuth} from "@js/api/util/lockPageToAuth.js";
 
 StepElement.register();
 ConsoleLogElement.register();
 
 function init(){
+    document.body.style.display = "block";
+    lockPageToAuth()
     loadTheme()
+
     initNavbar({
         collapsed:true,
         showCollapse:true,
