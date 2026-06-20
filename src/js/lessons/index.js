@@ -1,9 +1,14 @@
+import '@style/navbar.css'
+import '@style/global.css'
+import '@style/lessons/index.css'
+
 import {initNavbar} from "../api/nav/navbar.js";
 import "./chart.js"
 import {loadTheme} from "../api/theme.js";
 
 function init(){
     loadTheme()
+    document.body.style.display = "block";
     initNavbar()
     setupButtons()
 }
