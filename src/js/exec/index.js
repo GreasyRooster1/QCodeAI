@@ -1,3 +1,4 @@
+import "@style/exec/style.css"
 
 let parent = null;
 
@@ -138,9 +139,13 @@ function startP5(drawArg,setupArg,otherFunctions,isWebGL) {
             console.error("createCanvas is disabled");
         }
         for(let s of rejectedFunctions){
-            eval(s+` = ()=>{
-                console.error(s+" is disabled");
-            }`)
+
+           eval(`
+                window['${s}'] = () => {
+                    console.error("${s}" + " is disabled");
+                }
+                `);
+
         }
         document.getElementById("defaultCanvas0").style.width = "100vmin";
         document.getElementById("defaultCanvas0").style.height = "100vmin";
