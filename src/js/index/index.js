@@ -18,6 +18,7 @@ import {setupNewProjectEvents} from "@js/index/newProject.js";
 import {lockPageToAuth} from "@js/api/util/lockPageToAuth.js";
 import {initNavbar} from "@js/api/nav/navbar.js";
 import {ProjectLinkElement} from "@js/api/customElements.js";
+import {loadTheme} from "@js/api/theme.js";
 
 
 const badgeDisplay = document.querySelector(".badges-display");
@@ -28,6 +29,7 @@ const announcementsDisplay = document.querySelector(".announcements-display");
 ProjectLinkElement.register()
 
 function init(){
+    loadTheme()
     lockPageToAuth()
 
     initNavbar({

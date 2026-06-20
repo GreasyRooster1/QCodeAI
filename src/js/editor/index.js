@@ -1,3 +1,19 @@
+import "@style/global.css"
+import "@style/navbar.css"
+
+import "@style/editor/editor.css"
+import '@style/editor/lang.css'
+import '@style/editor/panes.css'
+import '@style/editor/panes/stepPane.css'
+import '@style/editor/panes/codePane.css'
+import '@style/editor/panes/outputPane.css'
+import '@style/editor/lessonCreator.css'
+import '@style/editor/share.css'
+import '@style/editor/panes/lang/web.css'
+import '@style/editor/panes/lang/arduino.css'
+import '@style/editor/panes/lang/scratch.css'
+import '@style/editor/panes/lang/python.css'
+
 import {loadProjectFromUrlData} from "./load.js";
 import {setupAutoSave} from "./save.js";
 import {setupShareEvents} from "./share.js";
