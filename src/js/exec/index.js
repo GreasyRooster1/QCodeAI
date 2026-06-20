@@ -75,6 +75,7 @@ window.addEventListener("message", ({ data, source }) => {
     if (parent === null) {
         parent = source;
     }
+    console.log(data)
 
     runJs(data);
 });
