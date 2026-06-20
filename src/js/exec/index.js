@@ -88,38 +88,39 @@ document.addEventListener('contextmenu', event => {
 
 function runJs(js){
     //clear dangerous objects and run code
-    let nl = "\n"
-    let isWebGl = js.startsWith("// WebGL")
-    if(isWebGl) {
-        console.log("running in WebGL mode")
-    }
-    eval(`
-        try {
-            `+js+`
-        }catch(e){
-            let stack = e.stack.split(nl);
-            let lineCol = stack[1].replace("at eval (eval at runJs (webpack:///./src/exec/index.js?),","").replace(")","").split(":");
-            let out = lineCol[1]-2+":"+lineCol[2];
-            console.error(" "+out+" : "+stack[0]);
-        }
-    `);
+    let isWebGl = js.startsWith("// WebGL");
+    if (isWebGl) console.log("running in WebGL mode");
 
+    let setup, draw;
     let eventFunctions = [];
 
-    for (let acceptedFunc of acceptedFunctions){
-        let funcDef;
-        try {
-            funcDef = eval(acceptedFunc);
-        }catch(e){
-            funcDef = undefined;
+    try {
+        const wrapped = new Function(`
+            ${js}
+            return {
+                setup: typeof setup === "function" ? setup : undefined,
+                draw: typeof draw === "function" ? draw : undefined,
+                __events: {
+                    ${acceptedFunctions.map(f =>
+                        `${f}: typeof ${f} === "function" ? ${f} : undefined`
+                    ).join(",\n")}
+                }
+            };
+        `);
+        const result = wrapped();
+        setup = result.setup;
+        draw = result.draw;
+        for (let name of acceptedFunctions) {
+            if (result.__events[name]) eventFunctions.push(result.__events[name]);
         }
-
-        if (funcDef !== undefined) {
-            eventFunctions.push(funcDef);
-        }
+    } catch (e) {
+        const stack = (e.stack || "").split("\n");
+        console.error(e.message + (stack[0] ? " : " + stack[0] : ""));
+        return;
     }
 
-    if(draw===undefined||setup===undefined){
+    if (draw === undefined || setup === undefined) {
+        console.error("setup and draw must both be defined");
         return;
     }
 
