@@ -4,14 +4,14 @@ import { getAuth } from "firebase/auth";
 
 
 const firebaseConfig = {
-    apiKey: "AIzaSyC1GB-hiznIqC51ppB23rIgHSIRM0MT9B8",
-    authDomain: "qcode-cdfc6.firebaseapp.com",
-    databaseURL: "https://qcode-cdfc6-default-rtdb.firebaseio.com",
-    projectId: "qcode-cdfc6",
-    storageBucket: "qcode-cdfc6.appspot.com",
-    messagingSenderId: "880821739173",
-    appId: "1:880821739173:web:7f68b987c9a53e49bb374c",
-    measurementId: "G-E5DHM57W13"
+    apiKey: "AIzaSyDbtSp2aC81j76BHf3Kg8U14NoDLrmQqts",
+    authDomain: "qcodeai-c61dc.firebaseapp.com",
+    databaseURL: "https://qcodeai-c61dc-default-rtdb.firebaseio.com",
+    projectId: "qcodeai-c61dc",
+    storageBucket: "qcodeai-c61dc.firebasestorage.app",
+    messagingSenderId: "740190474262",
+    appId: "1:740190474262:web:b27a450eea9ba241a02537",
+    measurementId: "G-Y1FTB8HNKL"
 };
 
 const app = initializeApp(firebaseConfig);
