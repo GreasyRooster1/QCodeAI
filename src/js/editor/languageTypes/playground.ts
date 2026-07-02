@@ -16,12 +16,21 @@ class PlaygroundType extends ProjectType {
     }
 
     onLoad(): void {
-        //document.querySelector(".code-pane")!.remove();
+        let content = this.getPlaygroundContent()
+        document.querySelector(".code-pane")!.innerHTML = `
+            <div class="playground-main">
+                ${content}
+            </div>
+        `
     }
 
     setupEditor(){
         //document.querySelector(".output-pane")!.remove();
         //document.querySelector(".pane-container")!.classList.add("scratch-style-override")
+    }
+
+    setupEditorLanguage(){
+        //dont setup any language
     }
 
     onSave(){
@@ -41,6 +50,10 @@ class PlaygroundType extends ProjectType {
         return "javascript";
     }
 
+    getPlaygroundContent():string {
+        return "overload the getPlaygroundContent function in playground.ts to add your own content!";
+    }
+
     static getProjectDBData(projectName: string, lessonId: string):Promise<Object> {
         let cleanLessonId = lessonId ?? "none"
         return new Promise((resolve, reject) => {
@@ -55,6 +68,8 @@ class PlaygroundType extends ProjectType {
             resolve(data);
         });
     }
+
+
 }
 
 export {PlaygroundType};
