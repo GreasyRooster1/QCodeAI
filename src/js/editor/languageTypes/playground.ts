@@ -25,7 +25,10 @@ class PlaygroundType extends ProjectType {
             <div class="playground-main">
                 ${content}
             </div>
-        `
+        `;
+
+        document.querySelector(".output-pane")!.remove();
+        document.querySelector(".pane-container")!.classList.add("playground-style-override")
     }
 
     setupEditorLanguage(){

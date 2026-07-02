@@ -10,6 +10,7 @@ class LLMSandboxPlayground extends PlaygroundType{
 
     getPlaygroundContent():string {
         return `
+            <div class="playground-title">LLM Sandbox</div>
             <div class="playground-section">
                 <div class="playground-rows">
                     <div class="playground-input">
