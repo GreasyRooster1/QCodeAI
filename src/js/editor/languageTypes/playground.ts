@@ -9,19 +9,19 @@ import {clearConsole} from "../codeExecution";
 import {createGutterBlocks, setupDefaultPanes} from "../panes";
 import Split from "split.js";
 
-class ScratchType extends ProjectType {
+class PlaygroundType extends ProjectType {
     static identifier = "playground"
     constructor() {
         super(true);
     }
 
     onLoad(): void {
-        document.querySelector(".code-pane")!.remove();
+        //document.querySelector(".code-pane")!.remove();
     }
 
     setupEditor(){
-        document.querySelector(".output-pane")!.remove();
-        document.querySelector(".pane-container")!.classList.add("scratch-style-override")
+        //document.querySelector(".output-pane")!.remove();
+        //document.querySelector(".pane-container")!.classList.add("scratch-style-override")
     }
 
     onSave(){
@@ -43,10 +43,9 @@ class ScratchType extends ProjectType {
 
     static getProjectDBData(projectName: string, lessonId: string):Promise<Object> {
         let cleanLessonId = lessonId ?? "none"
-        let hasLesson = cleanLessonId != "none";
         return new Promise((resolve, reject) => {
             let data = {
-                language: "scratch",
+                language: this.identifier,
                 name: projectName,
                 lessonId: lessonId ?? "none",
                 currentChapter: 0,
@@ -58,4 +57,4 @@ class ScratchType extends ProjectType {
     }
 }
 
-export {ScratchType};
+export {PlaygroundType};
