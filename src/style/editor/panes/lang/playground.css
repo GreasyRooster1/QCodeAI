@@ -15,6 +15,9 @@
     background: var(--playground-background);
     flex-direction: column;
 }
+.playground-main > div{
+    margin-top:8px;
+}
 
 .playground-section{
     display: flex;
