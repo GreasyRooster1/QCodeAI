@@ -31,6 +31,14 @@ class PlaygroundType extends ProjectType {
         document.querySelector(".pane-container")!.classList.add("playground-style-override")
     }
 
+    createPanes(hasLesson:boolean){
+        Split(['.steps-pane', '.code-pane'], {
+            sizes: [30, 70],
+        });
+
+        createGutterBlocks()
+    }
+
     setupEditorLanguage(){
         //dont setup any language
     }
