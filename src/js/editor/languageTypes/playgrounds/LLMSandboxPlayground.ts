@@ -11,7 +11,16 @@ class LLMSandboxPlayground extends PlaygroundType{
     getPlaygroundContent():string {
         return `
             <div class="playground-section">
-                test
+                <div class="playground-rows">
+                    <div class="playground-input">
+                        <label for="provider">Provider</label>
+                        <select name="provider" id="provider">
+                          <option value="claude">Claude</option>
+                          <option value="chatgpt">ChatGPT</option>
+                          <option value="deepseek">DeepSeek</option>
+                        </select>
+                    </div>
+                </div>
             <div>
         `;
     }

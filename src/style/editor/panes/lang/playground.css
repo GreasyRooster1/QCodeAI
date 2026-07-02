@@ -2,12 +2,18 @@
     --playground-background: var(--c-gray-100);
     --playground-section-background: var(--c-gray-200);
     --playground-section-border: var(--c-gray-400);
+
+    --playground-input-background: var(--c-gray-300);
+    --playground-input-text-color: var(--c-white);
+    --playground-select-hover: var(--c-purple-light);
+    --playground-select-border: var(--c-gray-400);
 }
 
 .playground-main{
     display: flex;
     margin:8px;
     background: var(--playground-background);
+    flex-direction: column;
 }
 
 .playground-section{
@@ -16,4 +22,60 @@
     background: var(--playground-section-background);
     border: 1px solid var(--playground-section-border);
     border-radius: 10px;
+    flex-direction: column;
+}
+
+.playground-rows{
+    display: flex;
+    flex-direction: row;
+}
+.playground-rows > *{
+    margin:8px;
+}
+
+select {
+    /* strip the native look */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline:none;
+
+    /* box */
+    display: inline-block;
+    width: 100%;
+    padding: 10px 40px 10px 14px; /* room for the arrow on the right */
+    font: inherit;
+    font-size: 15px;
+    line-height: 1.4;
+    color: var(--playground-input-text-color);
+    background-color: var(--playground-input-background);
+
+    /* modern rounded edge + 1px light border */
+    border: 1px solid var(--playground-select-border);
+    border-radius: 10px;
+
+    /* custom chevron */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 16px;
+
+    cursor: pointer;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+select:hover {
+    border-color: var(--playground-select-hover);
+}
+
+select:focus {
+    outline: none;
+    border-color: var(--c-purple-light);
+    box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.25);
+}
+
+/* remove the dotted focus ring in Firefox */
+select:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #1f2937;
 }
