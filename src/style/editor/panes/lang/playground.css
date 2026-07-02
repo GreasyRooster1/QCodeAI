@@ -31,7 +31,17 @@
 }
 .playground-rows > *{
     margin:8px;
+    flex:1
 }
+
+.playground-main label{
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+}
+
+
+
 
 select {
     /* strip the native look */
