@@ -16,17 +16,16 @@ class PlaygroundType extends ProjectType {
     }
 
     onLoad(): void {
+
+    }
+
+    setupEditor(){
         let content = this.getPlaygroundContent()
         document.querySelector(".code-pane")!.innerHTML = `
             <div class="playground-main">
                 ${content}
             </div>
         `
-    }
-
-    setupEditor(){
-        //document.querySelector(".output-pane")!.remove();
-        //document.querySelector(".pane-container")!.classList.add("scratch-style-override")
     }
 
     setupEditorLanguage(){
