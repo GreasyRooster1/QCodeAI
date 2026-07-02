@@ -84,4 +84,4 @@ class PlaygroundType extends ProjectType {
 
 }
 
-export {PlaygroundType};
+export {PlaygroundType, AIAPI};
