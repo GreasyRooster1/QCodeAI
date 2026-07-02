@@ -25,10 +25,12 @@ class LLMSandboxPlayground extends PlaygroundType{
                         <input type="range" id="temp" name="temp" min="0" max="100" value="50" step="1">
                     </div>
                 </div>
+                <div class="playground-sep"></div>
+                <div class="playground-input">
+                    <textarea id="text-input" name="text-input" rows="4" cols="50" placeholder="Type your message here..."></textarea>
+                </div>
             </div>
-            <div class="playground-input">
-                <textarea id="text-input" name="text-input" rows="4" cols="50" placeholder="Type your message here..."></textarea>
-            </div>
+            
         `;
     }
 }

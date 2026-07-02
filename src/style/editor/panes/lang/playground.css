@@ -48,6 +48,14 @@
     flex:1
 }
 
+.playground-sep{
+    height: 0px;
+    border-top: 1px solid var(--playground-section-border);
+    background: var(--playground-section-border);
+    margin: 15px 10px;
+    flex:1;
+}
+
 
 
 select {
