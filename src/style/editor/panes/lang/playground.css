@@ -1,7 +1,7 @@
 :root{
     --playground-background: var(--c-gray-100);
-    --playground-section-background: var(--c-gray-300);
-    --playground-section-border: var(--c-gray-600);
+    --playground-section-background: var(--c-gray-200);
+    --playground-section-border: var(--c-gray-400);
 }
 
 .playground-main{
@@ -12,8 +12,8 @@
 
 .playground-section{
     display: flex;
-    margin:8px;
+    padding:10px;
     background: var(--playground-section-background);
     border: 1px solid var(--playground-section-border);
-    border-radius: 8px;
+    border-radius: 10px;
 }
