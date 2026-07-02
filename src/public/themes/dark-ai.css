@@ -1,34 +1,24 @@
-/* ============================================================
-   Consolidated Color Palette
-   Neutral scale: white + 11 grays + black. Grays are named by
-   their hex value for easy reference. Merges were chosen so
-   that elements which sit on/next to each other within the
-   same page never share a step.
-   ============================================================ */
 :root{
-    /* Neutrals (light -> dark) */
     --c-white:   #ffffff;
-    --c-gray-900: #e2e2e2;   /* light text, light inputs/buttons, code editor bg */
-    --c-gray-850: #d2d2d2;   /* light containers, secondary light text */
-    --c-gray-800: #c0c0c0;   /* login pane, light hover states */
-    --c-gray-700: #b4b4b4;   /* light page bgs, sidebars, content panes */
-    --c-gray-600: #999999;   /* brand gray, mid buttons/inputs, borders */
-    --c-gray-500: #808080;   /* disabled, mid containers, muted text on dark */
-    --c-gray-400: #686868;   /* dark-mid panes, muted icons/links */
-    --c-gray-300: #4d4d4d;   /* separators, chrome accents, dark-page bgs */
-    --c-gray-200: #2c2c2c;   /* bars, trays, dark panels */
-    --c-gray-100: #202020;   /* canvases, editor panes, page centers */
-    --c-gray-50: #141414;   /* near-black page/step backgrounds */
+    --c-gray-900: #e2e2e2;
+    --c-gray-850: #d2d2d2;
+    --c-gray-800: #c0c0c0;
+    --c-gray-700: #b4b4b4;
+    --c-gray-600: #999999;
+    --c-gray-500: #808080;
+    --c-gray-400: #686868;
+    --c-gray-300: #4d4d4d;
+    --c-gray-200: #2c2c2c;
+    --c-gray-100: #202020;
+    --c-gray-50: #141414;
     --c-black:   #000000;
 
-    /* Purples */
-    --c-purple-bright: #6f0ed1;   /* run button, arduino ok */
-    --c-purple-deep: #631aca;     /* admin action buttons */
-    --c-plum-section: #2e2a3e;    /* left sections, new project popup */
-    --c-plum-link: #3f3b51;       /* lessons chart / recommended */
-    --c-plum-badge: #524259;      /* badge + badge hover */
+    --c-purple-bright: #6f0ed1;
+    --c-purple-deep: #631aca;
+    --c-plum-section: #2e2a3e;
+    --c-plum-link: #3f3b51;
+    --c-plum-badge: #524259;
 
-    /* Auth error reds (shared by login + admin login) */
     --c-error-bg: rgba(210, 22, 22, 0.39);
     --c-error-solid: rgb(211, 48, 48);
     --c-error-text: rgb(35, 2, 2);
