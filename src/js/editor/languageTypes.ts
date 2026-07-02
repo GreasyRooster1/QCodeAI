@@ -4,6 +4,7 @@ import {ArduinoType} from "./languageTypes/arduino/arduino";
 import {ScratchType} from "./languageTypes/scratch";
 import {PythonType} from "./languageTypes/python/python";
 import {PlaygroundType} from "@js/editor/languageTypes/playground";
+import {LLMSandboxPlayground} from "@js/editor/languageTypes/playgrounds/LLMSandboxPlayground";
 
 const languageTypes = {
     "javascript": JavascriptType,
@@ -12,6 +13,7 @@ const languageTypes = {
     "scratch": ScratchType,
     "python": PythonType,
     "playground": PlaygroundType,
+    "llmsandbox": LLMSandboxPlayground,
 }
 
 export {languageTypes};
