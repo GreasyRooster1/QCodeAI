@@ -24,16 +24,11 @@ class LLMSandboxPlayground extends PlaygroundType{
                         <label for="temp">Temperature</label>
                         <input type="range" id="temp" name="temp" min="0" max="100" value="50" step="1">
                     </div>
-                    <div class="playground-input">
-                        <label for="provider">Provider</label>
-                        <select name="provider" id="provider">
-                          <option value="claude">Claude</option>
-                          <option value="chatgpt">ChatGPT</option>
-                          <option value="deepseek">DeepSeek</option>
-                        </select>
-                    </div>
                 </div>
             <div>
+            <div class="playground-input">
+                <textarea id="text-input" name="text-input" rows="4" cols="50" placeholder="Type your message here..."></textarea>
+            </div>
         `;
     }
 }

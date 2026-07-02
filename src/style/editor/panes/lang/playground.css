@@ -39,7 +39,11 @@
     display: block;
     margin-bottom: 8px;
 }
-
+.playground-input{
+    display: flex;
+    flex-direction: column;
+    flex:1
+}
 
 
 
@@ -149,3 +153,56 @@ input[type="range"]:active::-webkit-slider-thumb { transform: scale(0.95); }
 input[type="range"]:active::-moz-range-thumb     { transform: scale(0.95); }
 
 input[type="range"]:focus { outline: none; }
+
+
+textarea {
+    /* strip native chrome */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    /* box */
+    flex:1;
+    display: block;
+    min-height: 96px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--c-white);
+    background-color: var(--playground-input-background);
+
+    /* modern rounded edge + 1px light border */
+    border: 1px solid var(--playground-section-border);
+    border-radius: 10px;
+
+    /* let users drag height only, not width */
+    resize: vertical;
+
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+textarea::placeholder {
+    color: var(--c-gray-80);
+}
+
+textarea:hover {
+    border-color: var(--c-gray-68);
+}
+
+textarea:focus {
+    outline: none;
+    border-color: var(--c-purple-bright);
+    box-shadow: 0 0 0 3px rgba(111, 14, 209, 0.25);
+}
+
+textarea:disabled {
+    background-color: var(--c-gray-20);
+    color: var(--c-gray-80);
+    cursor: not-allowed;
+}
+
+/* style the drag handle in WebKit (Chrome/Safari) */
+textarea::-webkit-resizer {
+    background: transparent;
+}
