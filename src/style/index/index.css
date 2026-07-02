@@ -2,25 +2,25 @@
     --center-background: #eaeaea;
 
     --left-bar-background: #dcdcdc;
-    --left-sections-background: #aab4dc;
+    --left-sections-background: #b1aadc;
 
     --right-bar-background: #dddddd;
-    --right-sections-background: #aadcb4;
+    --right-sections-background: #c3aadc;
 
-    --project-link-background: #8d99dd;
+    --project-link-background: #998ddd;
     --project-link-text: #191919;
-    --project-date-text: #c9d0dd;
+    --project-date-text: #cdc9dd;
 
-    --lessons-chart-link-background:#98a2da;
-    --lessons-recommended-background: #a1a9d8;
+    --lessons-chart-link-background: #9f98da;
+    --lessons-recommended-background: #a6a1d8;
 
-    --left-bar-accent: #7583e1;
+    --left-bar-accent: #8475e1;
     --left-bar-text-accent: #dde5e8;
 
-    --badge-details-background: #94d89d;
-    --badge-hover-color: #83d88f;
-    --badge-color: #94d89d;
-    --right-bar-accent: #3eda51;
+    --badge-details-background: #c294d8;
+    --badge-hover-color: #b883d8;
+    --badge-color: #c294d8;
+    --right-bar-accent: #8a3eda;
 
     --featured-project-thumb-background: rgba(0, 0, 0, 0.5);
 
@@ -31,23 +31,23 @@
     --announcement-date-text: #4d4d4d;
 
     --points-progress-bar-background: #cdcdcd;
-    --points-progress-bar-fill: #64d888;
+    --points-progress-bar-fill: #a264d8;
 
     --status-display-text: #dfdfdf;
     --status-display-external: #ea473a;
-    --status-display-not-started: #3a78ea;
-    --status-display-started: #3aea78;
+    --status-display-not-started: #5c3aea;
+    --status-display-started: #8a3aea;
 
     --footer-background: #c5c5c5;
     --footer-text-color: #717171;
 
     --badge-size:50px;
 
-    --share-board-more-button-color: #14a4e3;
+    --share-board-more-button-color: #5314e3;
     --share-board-more-button-text-color: #eef9ff;
 
-    --new-project-popup-background: #b3b9df;
-    --popup-inputs-background: #9da6dd;
+    --new-project-popup-background: #bbb3df;
+    --popup-inputs-background: #a69ddd;
 }
 .nav-shift-fix{
     height:var(--navbar-height);

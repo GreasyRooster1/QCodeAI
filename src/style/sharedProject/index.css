@@ -1,25 +1,25 @@
 :root{
-    --code-pane-background: #d0efcc;
+    --code-pane-background: #ddccef;
     --view-pane-background: #b6b6b6;
 
-    --info-tab-background: #acb4d6;
-    --code-tab-background: #90d89e;
-    --info-tab-color: #021930;
-    --code-tab-color: #033c03;
-    --info-section-background: #d1d7e8;
+    --info-tab-background: #b3acd6;
+    --code-tab-background: #b290d8;
+    --info-tab-color: #0a0230;
+    --code-tab-color: #1e033c;
+    --info-section-background: #d6d1e8;
 
-    --info-inset-background: #c6cee3;
-    --author-block-background: #b6c3e6;
+    --info-inset-background: #ccc6e3;
+    --author-block-background: #c0b6e6;
 
     --tab-bar-background: #c3c3c3;
 
-    --remix-button-color: #2078e8;
+    --remix-button-color: #5320e8;
     --remix-button-text-color: #e3e5e8;
 
-    --original-title-border: #4b6ec8;
+    --original-title-border: #654bc8;
 
-    --lesson-card: #a4ecad;
-    --lesson-button: #6de383;
+    --lesson-card: #c9a4ec;
+    --lesson-button: #9c6de3;
 
     --user-img-size:13vh;
 }
