@@ -9,6 +9,8 @@ import {clearConsole} from "../codeExecution";
 import {createGutterBlocks, setupDefaultPanes} from "../panes";
 import Split from "split.js";
 
+const AIAPI = "localhost:5173"
+
 class PlaygroundType extends ProjectType {
     static identifier = "playground"
     constructor() {
