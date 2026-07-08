@@ -88,12 +88,22 @@ class PlaygroundType extends ProjectType {
     }
 
     makeRequest(url:string,method:string,data:any){
-        return fetch(AIAPI+url,{
-            method:method,
-            headers:{
-                "Content-Type":"application/json"
-            },
-            body:JSON.stringify(data)
+        return new Promise((resolve,reject)=>{
+            fetch(AIAPI+url,{
+                method:method,
+                headers:{
+                    "Content-Type":"application/json"
+                },
+                body:JSON.stringify(data)
+            }).then(async res=>{
+                if(!res.ok){
+                    reject(await res.text())
+                }
+                let data = await res.json()
+                resolve(data)
+            }).catch((e)=>{
+                reject(e)
+            })
         })
     }
 
