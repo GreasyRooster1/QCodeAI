@@ -35,6 +35,7 @@ class PlaygroundType extends ProjectType {
         document.querySelector(".playground-run-trigger")!.addEventListener("click",(e)=>{
             this.onRunTrigger()
         })
+        this.setupInputs();
     }
 
     createPanes(hasLesson:boolean){
@@ -69,12 +70,20 @@ class PlaygroundType extends ProjectType {
         const fill = styles.getPropertyValue('--c-purple-bright').trim();
         const track = styles.getPropertyValue('--c-gray-300').trim();
         let sliders = document.querySelectorAll(".playground-slider");
-        for(let s of sliders){
-            let slider = s as HTMLInputElement;
-            let span = slider.querySelector("span")!;
-            span.textContent = (slider as HTMLInputElement).value;
-            slider.style.background =
-                `linear-gradient(90deg, ${fill} 0%, ${fill} ${p}%, ${track} ${p}%, ${track} 100%)`;
+        for(let container of sliders){
+            let slider = container.querySelector("input") as HTMLInputElement;
+            let handler = ()=>{
+                // @ts-ignore
+                const p = (slider.value - slider.min) / (slider.max - slider.min) * 100;
+
+                let span = container.querySelector("span")!
+                let value = Number((slider as HTMLInputElement).value);
+                span.textContent = value.toFixed(2);
+                slider.style.background =
+                    `linear-gradient(90deg, ${fill} 0%, ${fill} ${p}%, ${track} ${p}%, ${track} 100%)`;
+            }
+            slider.addEventListener('input',handler);
+            handler();
         }
     }
 
