@@ -52,6 +52,10 @@ class LLMSandboxPlayground extends PlaygroundType{
             temperature:this.getInput("temp"),
             user_prompt:this.getInput("text-input"),
             system_prompt:"You are a personal ai assistant, you are interacting with children, respond appropriately and accordingly given the users age.",
+        }).then(res=>{
+            if(res.ok){
+                let result = res.json();
+            }
         })
     }
 }
