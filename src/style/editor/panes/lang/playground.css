@@ -11,6 +11,13 @@
     --playground-button-background: var(--c-purple-bright);
     --playground-button-hover: var(--c-purple-light);
     --playground-button-disabled: var(--c-gray-400);
+
+    --playground-slider-track: var(--c-gray-300);
+    --playground-slider-fill: var(--c-purple-bright);
+    --playground-slider-thumb: var(--c-white);
+    --playground-slider-thumb-border: var(--c-gray-700);
+    --playground-slider-thumb-active: var(--c-purple-deep);
+    --playground-slider-focus-ring: color-mix(in srgb, var(--c-purple-light) 33%, transparent);
 }
 
 .playground-main{
@@ -136,65 +143,99 @@ select:-moz-focusring {
     text-shadow: 0 0 0 #1f2937;
 }
 
+.playground-slider{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
 
-input[type="range"] {
+.playground-slider div{
+    display: flex;
+    flex-direction: row;
+    flex:1;
+    width:100%;
+}
+
+.playground-slider input{
+    flex:1;
+}
+
+.playground-slider span{
+    display: flex;
+    font-size: 14px;
+    font-weight: 500;
+    min-width: 34px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+input.sl {
     -webkit-appearance: none;
-    -moz-appearance: none;
     appearance: none;
-
-    width: 100%;
-    height: 8px; /* hit area; visible track is thinner below */
-    background: var(--c-gray-700);
-    border-radius: 999px;
+    flex: 1;
+    height: 6px;
+    border-radius: 3px;
+    background: var(--track);
+    outline: none;
     cursor: pointer;
 }
 
-/* ---------- WebKit / Blink (Chrome, Edge, Safari) ---------- */
-input[type="range"]::-webkit-slider-runnable-track {
+/* Track */
+input.sl::-webkit-slider-runnable-track {
     height: 6px;
-    border-radius: 999px;
-    border: 1px solid var(--c-gray-4d);
-    background: var(--c-gray-2c);
+    border-radius: 3px;
+    background: transparent;
+}
+input.sl::-moz-range-track {
+    height: 6px;
+    border-radius: 3px;
+    background: var(--track);
+}
+input.sl::-moz-range-progress {
+    height: 6px;
+    border-radius: 3px;
+    background: var(--fill);
 }
 
-input[type="range"]::-webkit-slider-thumb {
+/* Thumb */
+input.sl::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 18px;
-    height: 18px;
-    margin-top: -5px;
+    width: 20px;
+    height: 20px;
+    margin-top: -7px;
     border-radius: 50%;
-    background: var(--c-white);
-    border: 1px solid var(--c-gray-4d);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
-    transition: transform 0.12s ease;
+    background: var(--thumb);
+    border: 2px solid var(--thumb-border);
+    cursor: pointer;
+    transition: border-color .12s;
 }
-
-/* ---------- Firefox ---------- */
-input[type="range"]::-moz-range-track {
-    height: 6px;
-    border-radius: 999px;
-    border: 1px solid var(--c-gray-4d);
-    background: var(--c-gray-2c);
-}
-
-input[type="range"]::-moz-range-thumb {
-    width: 18px;
-    height: 18px;
+input.sl::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
-    background: var(--c-white);
-    border: 1px solid var(--c-gray-4d);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
-    transition: transform 0.12s ease;
+    background: var(--thumb);
+    border: 2px solid var(--thumb-border);
+    cursor: pointer;
+    transition: border-color .12s;
 }
 
-/* ---------- Hover / active ---------- */
-input[type="range"]:hover::-webkit-slider-thumb  { transform: scale(1.1); }
-input[type="range"]:hover::-moz-range-thumb      { transform: scale(1.1); }
-input[type="range"]:active::-webkit-slider-thumb { transform: scale(0.95); }
-input[type="range"]:active::-moz-range-thumb     { transform: scale(0.95); }
+/* Purple border only while dragging */
+input.sl:active::-webkit-slider-thumb {
+    border-color: var(--thumb-active);
+}
+input.sl:active::-moz-range-thumb {
+    border-color: var(--thumb-active);
+}
 
-input[type="range"]:focus { outline: none; }
+/* Focus ring */
+input.sl:focus-visible::-webkit-slider-thumb {
+    box-shadow: 0 0 0 4px var(--focus-ring);
+}
+input.sl:focus-visible::-moz-range-thumb {
+    box-shadow: 0 0 0 4px var(--focus-ring);
+}
 
 
 textarea {

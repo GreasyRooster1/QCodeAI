@@ -21,9 +21,12 @@ class LLMSandboxPlayground extends PlaygroundType{
                           <option value="deepseek">DeepSeek</option>
                         </select>
                     </div>
-                    <div class="playground-input">
+                    <div class="playground-input playground-slider">
                         <label for="temp">Temperature</label>
-                        <input type="range" id="temp" name="temp" min="0" max="100" value="50" step="1">
+                        <div>
+                            <input type="range" id="temp" name="temp" min="0.0" max="2.0" value=".7" step=".001">
+                            <span>.7</span>
+                        </div>
                     </div>
                 </div>
                 <div class="playground-sep"></div>
@@ -38,7 +41,7 @@ class LLMSandboxPlayground extends PlaygroundType{
     }
 
     onRunTrigger() {
-        console.log("run trigger")
+        console.log(this.getInput("provider"))
     }
 }
 

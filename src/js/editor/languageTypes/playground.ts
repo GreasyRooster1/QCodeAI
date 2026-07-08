@@ -63,6 +63,16 @@ class PlaygroundType extends ProjectType {
         }
     }
 
+    makeRequest(url:string,method:string,data:any){
+        return fetch(url,{
+            method:method,
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify(data)
+        })
+    }
+
     static getProjectDBData(projectName: string, lessonId: string):Promise<Object> {
         let cleanLessonId = lessonId ?? "none"
         return new Promise((resolve, reject) => {
