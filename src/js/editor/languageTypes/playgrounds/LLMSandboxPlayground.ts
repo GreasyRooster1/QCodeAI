@@ -38,6 +38,7 @@ class LLMSandboxPlayground extends PlaygroundType{
             <div class="playground-section">
                 <div class="playground-ai-text">
                     <div class="playground-placeholder-text">AI response will show up here</div>
+                    <div class="playground-spinner"></div>
                 </div>
             </div>
             <div class="playground-section">    

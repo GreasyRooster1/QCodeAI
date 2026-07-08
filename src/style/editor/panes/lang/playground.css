@@ -18,6 +18,9 @@
     --playground-slider-thumb-border: var(--c-gray-700);
     --playground-slider-thumb-active: var(--c-purple-deep);
     --playground-slider-focus-ring: color-mix(in srgb, var(--c-purple-light) 33%, transparent);
+
+    --playground-spinner-background:var(--c-gray-300);
+    --playground-spinner-accent:var(--c-purple-bright);
 }
 
 .playground-main{
@@ -99,6 +102,19 @@
 .playground-placeholder-text{
     color: var(--c-gray-700);
     font-style: italic;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.playground-spinner {
+    width: 44px;
+    height: 44px;
+    border: 4px solid var(--playground-spinner-background);      /* track color */
+    border-top-color: var(--playground-spinner-accent);      /* active arc color */
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
 }
 
 select {
