@@ -195,7 +195,7 @@ select:-moz-focusring {
 .playground-slider input::-moz-range-progress {
     height: 6px;
     border-radius: 3px;
-    background: var(--fill);
+    background: var(--playground-slider-fill);
 }
 
 /* Thumb */
@@ -206,8 +206,8 @@ select:-moz-focusring {
     height: 20px;
     margin-top: -7px;
     border-radius: 50%;
-    background: var(--thumb);
-    border: 2px solid var(--thumb-border);
+    background: var(--playground-slider-thumb);
+    border: 2px solid var(--playground-slider-thumb-border);
     cursor: pointer;
     transition: border-color .12s;
 }
@@ -215,26 +215,26 @@ select:-moz-focusring {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background: var(--thumb);
-    border: 2px solid var(--thumb-border);
+    background: var(--playground-slider-thumb);
+    border: 2px solid var(--playground-slider-thumb-border);
     cursor: pointer;
     transition: border-color .12s;
 }
 
 /* Purple border only while dragging */
 .playground-slider input:active::-webkit-slider-thumb {
-    border-color: var(--thumb-active);
+    border-color: var(--playground-slider-thumb);
 }
 .playground-slider input:active::-moz-range-thumb {
-    border-color: var(--thumb-active);
+    border-color: var(--playground-slider-thumb-active);
 }
 
 /* Focus ring */
 .playground-slider input:focus-visible::-webkit-slider-thumb {
-    box-shadow: 0 0 0 4px var(--focus-ring);
+    box-shadow: 0 0 0 4px var(--playground-slider-focus-ring);
 }
 .playground-slider input:focus-visible::-moz-range-thumb {
-    box-shadow: 0 0 0 4px var(--focus-ring);
+    box-shadow: 0 0 0 4px var(--playground-slider-focus-ring);
 }
 
 
