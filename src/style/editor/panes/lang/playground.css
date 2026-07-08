@@ -170,36 +170,36 @@ select:-moz-focusring {
     align-items: center;
 }
 
-input.sl {
+.playground-slider input {
     -webkit-appearance: none;
     appearance: none;
     flex: 1;
     height: 6px;
     border-radius: 3px;
-    background: var(--track);
+    background: var(--playground-slider-track);
     outline: none;
     cursor: pointer;
 }
 
 /* Track */
-input.sl::-webkit-slider-runnable-track {
+.playground-slider input::-webkit-slider-runnable-track {
     height: 6px;
     border-radius: 3px;
     background: transparent;
 }
-input.sl::-moz-range-track {
+.playground-slider input::-moz-range-track {
     height: 6px;
     border-radius: 3px;
-    background: var(--track);
+    background: var(--playground-slider-track);
 }
-input.sl::-moz-range-progress {
+.playground-slider input::-moz-range-progress {
     height: 6px;
     border-radius: 3px;
     background: var(--fill);
 }
 
 /* Thumb */
-input.sl::-webkit-slider-thumb {
+.playground-slider input::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
     width: 20px;
@@ -211,7 +211,7 @@ input.sl::-webkit-slider-thumb {
     cursor: pointer;
     transition: border-color .12s;
 }
-input.sl::-moz-range-thumb {
+.playground-slider input::-moz-range-thumb {
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -222,18 +222,18 @@ input.sl::-moz-range-thumb {
 }
 
 /* Purple border only while dragging */
-input.sl:active::-webkit-slider-thumb {
+.playground-slider input:active::-webkit-slider-thumb {
     border-color: var(--thumb-active);
 }
-input.sl:active::-moz-range-thumb {
+.playground-slider input:active::-moz-range-thumb {
     border-color: var(--thumb-active);
 }
 
 /* Focus ring */
-input.sl:focus-visible::-webkit-slider-thumb {
+.playground-slider input:focus-visible::-webkit-slider-thumb {
     box-shadow: 0 0 0 4px var(--focus-ring);
 }
-input.sl:focus-visible::-moz-range-thumb {
+.playground-slider input:focus-visible::-moz-range-thumb {
     box-shadow: 0 0 0 4px var(--focus-ring);
 }
 
