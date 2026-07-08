@@ -58,6 +58,8 @@ class LLMSandboxPlayground extends PlaygroundType{
             console.log(data.response)
             this.hideSpinner()
             document.querySelector(".playground-ai-text")!.innerHTML = data.response;
+        }).catch(e=>{
+            this.hideSpinner()
         })
     }
 }
