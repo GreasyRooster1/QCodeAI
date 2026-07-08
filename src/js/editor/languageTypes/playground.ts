@@ -31,6 +31,10 @@ class PlaygroundType extends ProjectType {
 
         document.querySelector(".output-pane")!.remove();
         document.querySelector(".pane-container")!.classList.add("playground-style-override")
+
+        document.querySelector(".playground-run-trigger")!.addEventListener("click",(e)=>{
+            this.onRunTrigger()
+        })
     }
 
     createPanes(hasLesson:boolean){
@@ -41,29 +45,8 @@ class PlaygroundType extends ProjectType {
         createGutterBlocks()
     }
 
-    setupEditorLanguage(){
-        //dont setup any language
-    }
-
-    onSave(){
-    }
-
-    onRun(errorCallback:RunErrCallback) {
-    }
-
-    onStop(){
-    }
-
-    runErrorCallback(content: string, type: string): void {
-        super.appendLog(content,type);
-    }
-
     getLanguage():Language {
         return "javascript";
-    }
-
-    getPlaygroundContent():string {
-        return "overload the getPlaygroundContent function in playground.ts to add your own content!";
     }
 
     getInput(key:string):any{
@@ -95,7 +78,32 @@ class PlaygroundType extends ProjectType {
         });
     }
 
+    /* abstracts */
+    getPlaygroundContent():string {
+        return "overload the getPlaygroundContent function in playground.ts to add your own content!";
+    }
 
+    onRunTrigger(){
+
+    }
+
+    /* unused overrides */
+    setupEditorLanguage(){
+        //dont setup any language
+    }
+
+    onSave(){
+    }
+
+    onRun(errorCallback:RunErrCallback) {
+    }
+
+    onStop(){
+    }
+
+    runErrorCallback(content: string, type: string): void {
+        super.appendLog(content,type);
+    }
 }
 
 export {PlaygroundType, AIAPI};

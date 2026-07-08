@@ -32,7 +32,7 @@ class LLMSandboxPlayground extends PlaygroundType{
                 </div>
             </div>
             <div class="playground-section">    
-                <div class="playground-button">Send</div>
+                <div class="playground-button playground-run-trigger">Send</div>
             </div>
         `;
     }
