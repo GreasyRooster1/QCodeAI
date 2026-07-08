@@ -7,6 +7,10 @@
     --playground-input-text-color: var(--c-white);
     --playground-select-hover: var(--c-purple-light);
     --playground-select-border: var(--c-gray-400);
+    --playground-button-text:var(--c-white);
+    --playground-button-background: var(--c-purple-bright);
+    --playground-button-hover: var(--c-purple-light);
+    --playground-button-disabled: var(--c-gray-400);
 }
 
 .playground-main{
@@ -68,6 +72,21 @@
     text-align: center;
 }
 
+.playground-button{
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    color:var(--playground-button-text);
+    background: var(--playground-button-background);
+}
+
+.playground-button:hover{
+    background: var(--playground-button-hover);
+}
+
+.playground-button:disabled{
+    background: var(--playground-button-disabled);
+}
 
 select {
     /* strip the native look */
