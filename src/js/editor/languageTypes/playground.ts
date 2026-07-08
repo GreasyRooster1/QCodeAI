@@ -63,6 +63,21 @@ class PlaygroundType extends ProjectType {
         }
     }
 
+    setupInputs(){
+        let main = document.querySelector(".playground-main")!;
+        let styles = getComputedStyle(main);
+        const fill = styles.getPropertyValue('--c-purple-bright').trim();
+        const track = styles.getPropertyValue('--c-gray-300').trim();
+        let sliders = document.querySelectorAll(".playground-slider");
+        for(let s of sliders){
+            let slider = s as HTMLInputElement;
+            let span = slider.querySelector("span")!;
+            span.textContent = (slider as HTMLInputElement).value;
+            slider.style.background =
+                `linear-gradient(90deg, ${fill} 0%, ${fill} ${p}%, ${track} ${p}%, ${track} 100%)`;
+        }
+    }
+
     makeRequest(url:string,method:string,data:any){
         return fetch(url,{
             method:method,
