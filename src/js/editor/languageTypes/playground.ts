@@ -9,7 +9,7 @@ import {clearConsole} from "../codeExecution";
 import {createGutterBlocks, setupDefaultPanes} from "../panes";
 import Split from "split.js";
 
-const AIAPI = "localhost:5173"
+const AIAPI = "localhost:5173/api/"
 
 class PlaygroundType extends ProjectType {
     static identifier = "playground"
@@ -88,7 +88,7 @@ class PlaygroundType extends ProjectType {
     }
 
     makeRequest(url:string,method:string,data:any){
-        return fetch(url,{
+        return fetch(AIAPI+url,{
             method:method,
             headers:{
                 "Content-Type":"application/json"

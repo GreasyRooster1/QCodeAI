@@ -1,6 +1,7 @@
 import {PlaygroundType} from "@js/editor/languageTypes/playground";
 import {ProjectType, RunErrCallback} from "@js/editor/languageTypes/projectType";
 import {Language} from "@js/editor/codeEditor";
+import {makeRequest} from "@js/editor/utils/cloudAgentAPI";
 
 class LLMSandboxPlayground extends PlaygroundType{
     static identifier = "llmsandbox"
@@ -46,7 +47,12 @@ class LLMSandboxPlayground extends PlaygroundType{
     }
 
     onRunTrigger() {
-        console.log(this.getInput("provider"))
+        this.makeRequest("/ai/generate","POST",{
+            provider:this.getInput("provider"),
+            temperature:this.getInput("temp"),
+            user_prompt:this.getInput("text-input"),
+            system_prompt:"You are a personal ai assistant, you are interacting with children, respond appropriately and accordingly given the users age.",
+        })
     }
 }
 
