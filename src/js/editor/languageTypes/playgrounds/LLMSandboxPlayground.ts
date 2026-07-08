@@ -17,9 +17,9 @@ class LLMSandboxPlayground extends PlaygroundType{
                     <div class="playground-input">
                         <label for="provider">Provider</label>
                         <select name="provider" id="provider">
-                          <option value="claude">Claude</option>
-                          <option value="chatgpt">ChatGPT</option>
-                          <option value="deepseek">DeepSeek</option>
+                          <option value="groq">Groq</option>
+                          <option value="ollama">Ollama</option>
+                          <option value="openai">OpenAI</option>
                         </select>
                     </div>
                     <div class="playground-input playground-slider">
@@ -52,10 +52,9 @@ class LLMSandboxPlayground extends PlaygroundType{
             temperature:this.getInput("temp"),
             user_prompt:this.getInput("text-input"),
             system_prompt:"You are a personal ai assistant, you are interacting with children, respond appropriately and accordingly given the users age.",
-        }).then(res=>{
-            if(res.ok){
-                let result = res.json();
-            }
+        }).then(data=>{
+            // @ts-ignore
+            console.log(data.response)
         })
     }
 }
