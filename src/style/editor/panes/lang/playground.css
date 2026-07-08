@@ -96,6 +96,11 @@
     background: var(--playground-button-disabled);
 }
 
+.playground-placeholder-text{
+    color: var(--c-gray-700);
+    font-style: italic;
+}
+
 select {
     /* strip the native look */
     -webkit-appearance: none;
