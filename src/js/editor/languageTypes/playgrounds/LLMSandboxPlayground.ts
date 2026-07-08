@@ -36,6 +36,10 @@ class LLMSandboxPlayground extends PlaygroundType{
             </div>
         `;
     }
+
+    onRunTrigger() {
+        console.log("run trigger")
+    }
 }
 
 export {LLMSandboxPlayground};
