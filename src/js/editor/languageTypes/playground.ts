@@ -109,6 +109,15 @@ class PlaygroundType extends ProjectType {
         })
     }
 
+    showSpinner(sel:string){
+        let content = "<div class=\"playground-spinner\"></div>"
+        document.querySelector(sel)!.innerHTML = content;
+    }
+
+    hideSpinner(){
+        document.querySelector("playground-spinner")?.remove()
+    }
+
     static getProjectDBData(projectName: string, lessonId: string):Promise<Object> {
         let cleanLessonId = lessonId ?? "none"
         return new Promise((resolve, reject) => {

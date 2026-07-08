@@ -38,7 +38,6 @@ class LLMSandboxPlayground extends PlaygroundType{
             <div class="playground-section">
                 <div class="playground-ai-text">
                     <div class="playground-placeholder-text">AI response will show up here</div>
-                    <div class="playground-spinner"></div>
                 </div>
             </div>
             <div class="playground-section">    
@@ -48,6 +47,7 @@ class LLMSandboxPlayground extends PlaygroundType{
     }
 
     onRunTrigger() {
+        this.showSpinner(".playground-ai-text")
         this.makeRequest("/ai/generate","POST",{
             provider:this.getInput("provider"),
             temperature:this.getInput("temp"),
@@ -56,6 +56,8 @@ class LLMSandboxPlayground extends PlaygroundType{
         }).then(data=>{
             // @ts-ignore
             console.log(data.response)
+            this.hideSpinner()
+            document.querySelector(".playground-ai-text")!.innerHTML = data.response;
         })
     }
 }
