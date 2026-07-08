@@ -73,11 +73,12 @@
 }
 
 .playground-button{
-    width: 100%;
-    height: 100%;
-    justify-content: center;
+    text-align: center;
     color:var(--playground-button-text);
     background: var(--playground-button-background);
+    padding:8px;
+    border-radius: 8px;
+    user-select: none;
 }
 
 .playground-button:hover{
