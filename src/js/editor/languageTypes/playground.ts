@@ -9,7 +9,7 @@ import {clearConsole} from "../codeExecution";
 import {createGutterBlocks, setupDefaultPanes} from "../panes";
 import Split from "split.js";
 
-const AIAPI = "http://127.0.0.1:8000/api/"
+const AIAPI = "http://127.0.0.1:8000/api"
 
 class PlaygroundType extends ProjectType {
     static identifier = "playground"
@@ -97,11 +97,13 @@ class PlaygroundType extends ProjectType {
                 body:JSON.stringify(data)
             }).then(async res=>{
                 if(!res.ok){
+                    console.error("playground request returned not ok",res)
                     reject(await res.text())
                 }
                 let data = await res.json()
                 resolve(data)
             }).catch((e)=>{
+                console.error("playground request failed with",e)
                 reject(e)
             })
         })
