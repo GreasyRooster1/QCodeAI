@@ -3,11 +3,12 @@ import {getCode,setupEvents as setupExecEvents,logNames,runCode,frameContent,fra
 import {Language} from "../codeEditor";
 import {getStoredUser} from "../../api/auth";
 import {get, ref, set} from "firebase/database";
-import {db} from "../../api/firebase";
+import {auth, db} from "../../api/firebase";
 import {writeToEditor} from "../utils/loadUtils";
 import {clearConsole} from "../codeExecution";
 import {createGutterBlocks, setupDefaultPanes} from "../panes";
 import Split from "split.js";
+
 
 const AIAPI = "http://127.0.0.1:8000/api"
 
@@ -88,7 +89,8 @@ class PlaygroundType extends ProjectType {
     }
 
     makeRequest(url:string,method:string,data:any){
-        return new Promise((resolve,reject)=>{
+        return new Promise((resolve:(value:any)=>void,reject)=>{
+
             fetch(AIAPI+url,{
                 method:method,
                 headers:{

@@ -54,7 +54,6 @@ class LLMSandboxPlayground extends PlaygroundType{
             user_prompt:this.getInput("text-input"),
             system_prompt:"You are a personal ai assistant, you are interacting with children, respond appropriately and accordingly given the users age.",
         }).then(data=>{
-            // @ts-ignore
             console.log(data.response)
             this.hideSpinner()
             document.querySelector(".playground-ai-text")!.innerHTML = data.response;

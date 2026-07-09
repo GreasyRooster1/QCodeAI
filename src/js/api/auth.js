@@ -3,6 +3,7 @@
 import {auth, db} from "./firebase.js";
 import {get, ref} from "firebase/database";
 import {assert} from "./util/util.js";
+import {AIAPI} from "@js/editor/languageTypes/playground.ts";
 
 function createUserDefault(email, password){
     auth.createUserWithEmailAndPassword(email, password)
@@ -114,6 +115,22 @@ function getCrypt(){
 
 function verifyCryptMetadata(data){
     assert(data.method,"rsa")
+}
+
+function getIdToken(forceRefresh) {
+    return new Promise((resolve, reject) => {
+        auth.currentUser?.getIdToken(forceRefresh).then(token => {
+            resolve(token);
+        }).catch(error => {
+            console.error("Error getting ID token, will force refresh: ", error);
+            auth.currentUser?.getIdToken(true).then(token => {
+                resolve(token);
+            }).catch(error => {
+                console.error("Couldn't refresh token after fail!: ", error);
+                reject(error);
+            })
+        })
+    })
 }
 
 export {
