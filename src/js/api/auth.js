@@ -3,7 +3,6 @@
 import {auth, db} from "./firebase.js";
 import {get, ref} from "firebase/database";
 import {assert} from "./util/util.js";
-import {AIAPI} from "@js/editor/languageTypes/playground.ts";
 
 function createUserDefault(email, password){
     auth.createUserWithEmailAndPassword(email, password)
