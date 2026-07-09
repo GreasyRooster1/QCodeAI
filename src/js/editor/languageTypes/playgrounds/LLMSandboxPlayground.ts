@@ -53,11 +53,11 @@ class LLMSandboxPlayground extends PlaygroundType{
             provider:this.getInput("provider"),
             temperature:this.getInput("temp"),
             user_prompt:this.getInput("text-input"),
-            system_prompt:"You are a personal ai assistant, you are interacting with children, respond appropriately and accordingly given the users age.",
+            system_prompt:"It is of upmost importance that you respond in a manner that is easy to understand and that is not offensive.",
         }).then(data=>{
-            console.log(data.response)
+            console.log(data)
             this.hideSpinner()
-            document.querySelector(".playground-ai-text")!.innerHTML = data.response;
+            document.querySelector(".playground-ai-text")!.innerHTML = data.output;
         }).catch(e=>{
             this.hideSpinner()
             this.showError(".playground-ai-text","An error occurred generating your response!")
