@@ -35,7 +35,7 @@ class LLMSandboxPlayground extends PlaygroundType{
                     <textarea id="text-input" name="text-input" rows="4" cols="50" placeholder="Type your message here..."></textarea>
                 </div>
             </div>
-            <div class="playground-section">
+            <div class="playground-section" style="flex:1">
                 <div class="playground-ai-text">
                     <div class="playground-placeholder-text">AI response will show up here</div>
                 </div>

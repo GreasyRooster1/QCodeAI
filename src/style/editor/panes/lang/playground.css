@@ -27,9 +27,10 @@
 
 .playground-main{
     display: flex;
-    margin:8px;
+    padding:8px;
     background: var(--playground-background);
     flex-direction: column;
+    height:-webkit-fill-available;
 }
 .playground-main > div{
     margin-top:8px;
