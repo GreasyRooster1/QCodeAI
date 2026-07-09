@@ -1,7 +1,7 @@
 import {ProjectType,RunErrCallback} from "./projectType";
 import {getCode,setupEvents as setupExecEvents,logNames,runCode,frameContent,frame,stopFrame} from "../executionHelper"
 import {Language} from "../codeEditor";
-import {getStoredUser} from "../../api/auth";
+import {getIdToken, getStoredUser} from "../../api/auth";
 import {get, ref, set} from "firebase/database";
 import {auth, db} from "../../api/firebase";
 import {writeToEditor} from "../utils/loadUtils";
@@ -90,24 +90,25 @@ class PlaygroundType extends ProjectType {
 
     makeRequest(url:string,method:string,data:any){
         return new Promise((resolve:(value:any)=>void,reject)=>{
-
-            fetch(AIAPI+url,{
-                method:method,
-                headers:{
-                    "Content-Type":"application/json"
-                },
-                body:JSON.stringify(data)
-            }).then(async res=>{
-                if(!res.ok){
-                    console.error("playground request returned not ok",res)
-                    reject(await res.text())
-                }
-                let data = await res.json()
-                resolve(data)
-            }).catch((e)=>{
-                console.error("playground request failed with",e)
-                reject(e)
-            })
+            getIdToken().then(token=>{
+                fetch(AIAPI+url,{
+                    method:method,
+                    headers:{
+                        "Content-Type":"application/json"
+                    },
+                    body:JSON.stringify(data)
+                }).then(async res=>{
+                    if(!res.ok){
+                        console.error("playground request returned not ok",res)
+                        reject(await res.text())
+                    }
+                    let data = await res.json()
+                    resolve(data)
+                }).catch((e)=>{
+                    console.error("playground request failed with",e)
+                    reject(e)
+                })
+            }).catch((e)=>{reject(e)})
         })
     }
 

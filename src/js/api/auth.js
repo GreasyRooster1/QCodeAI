@@ -142,5 +142,6 @@ export {
     storeUserPermissions,
     logOutUser,
     storeUser,
-    handleAuthErrors
+    handleAuthErrors,
+    getIdToken
 }
