@@ -101,6 +101,7 @@ class PlaygroundType extends ProjectType {
                     if(!res.ok){
                         console.error("playground request returned not ok",res)
                         reject(await res.text())
+                        return;
                     }
                     let data = await res.json()
                     resolve(data)
@@ -118,7 +119,7 @@ class PlaygroundType extends ProjectType {
     }
 
     hideSpinner(){
-        document.querySelector("playground-spinner")?.remove()
+        document.querySelector(".playground-spinner")?.remove()
     }
 
     static getProjectDBData(projectName: string, lessonId: string):Promise<Object> {
