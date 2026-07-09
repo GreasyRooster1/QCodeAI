@@ -25,7 +25,7 @@ class LLMSandboxPlayground extends PlaygroundType{
                     <div class="playground-input playground-slider">
                         <label for="temp">Temperature</label>
                         <div>
-                            <input type="range" id="temp" name="temp" min="0.0" max="2.0" value=".7" step=".0Kst1">
+                            <input type="range" id="temp" name="temp" min="0.0" max="2.0" value=".7" step=".01">
                             <span>.7</span>
                         </div>
                     </div>
