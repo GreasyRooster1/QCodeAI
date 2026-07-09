@@ -122,6 +122,14 @@ class PlaygroundType extends ProjectType {
         document.querySelector(".playground-spinner")?.remove()
     }
 
+    showError(sel:string,err:string){
+        document.querySelector(sel)!.innerHTML = "<div class=\"playground-error\">"+err+"</div>"
+    }
+
+    hideError(){
+        document.querySelector(".playground-error")?.remove()
+    }
+
     static getProjectDBData(projectName: string, lessonId: string):Promise<Object> {
         let cleanLessonId = lessonId ?? "none"
         return new Promise((resolve, reject) => {
