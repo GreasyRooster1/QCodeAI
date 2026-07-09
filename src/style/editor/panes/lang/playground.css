@@ -21,6 +21,8 @@
 
     --playground-spinner-background:var(--c-gray-300);
     --playground-spinner-accent:var(--c-purple-light);
+
+    --playground-error:var(--c-error-solid)
 }
 
 .playground-main{
@@ -101,6 +103,11 @@
 
 .playground-placeholder-text{
     color: var(--c-gray-700);
+    font-style: italic;
+}
+
+.playground-error{
+    color:var(--playground-error);
     font-style: italic;
 }
 
