@@ -48,6 +48,7 @@ class LLMSandboxPlayground extends PlaygroundType{
 
     onRunTrigger() {
         this.showSpinner(".playground-ai-text")
+        this.hideError()
         this.makeRequest("/ai/generate","POST",{
             provider:this.getInput("provider"),
             temperature:this.getInput("temp"),
