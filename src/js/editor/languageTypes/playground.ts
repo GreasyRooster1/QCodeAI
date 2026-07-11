@@ -99,6 +99,20 @@ class PlaygroundType extends ProjectType {
             return null;
         }
     }
+    setInput(key:string,value:any):any{
+        let el = document.querySelector(`.playground-input #${key}`)
+        let type = el?.tagName.toLowerCase();
+        if(type=="input"){
+            (el as HTMLInputElement).value = value;
+        }else if(type=="select"){
+            (el as HTMLSelectElement).value = value;
+        }else if(type=="textarea"){
+            (el as HTMLTextAreaElement).value = value;
+        }else{
+            return;
+        }
+
+    }
 
     setupInputs(){
         let main = document.querySelector(".playground-main")!;
