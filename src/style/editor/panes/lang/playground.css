@@ -79,6 +79,10 @@
     justify-content: center;
 }
 
+.playground-style-override .code-pane{
+    width: 100%;
+}
+
 .playground-title{
     font-size: 2em;
     font-weight: bold;
