@@ -50,8 +50,13 @@ class PlaygroundType extends ProjectType {
         document.querySelector(".code-pane")!.innerHTML = `
             <div class="playground-main">
                 <div class="playground-shelf">
-                    <button class="save-button">Save </button>
-                    <button class="share-button">Share </button>
+                    <div>
+                        <button class="save-button">Save </button>
+                        <button class="share-button">Share </button>
+                    </div>
+                    <div>
+                        <button class="reset-button">Reset </button>
+                    </div>
                 </div>
                 ${content}
             </div>

@@ -6,7 +6,7 @@ import {makeRequest} from "@js/editor/utils/cloudAgentAPI";
 class LLMSandboxPlayground extends PlaygroundType{
     static identifier = "llmsandbox"
     constructor() {
-        super();
+        super(false);
     }
 
     getPlaygroundContent():string {

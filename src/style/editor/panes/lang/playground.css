@@ -141,6 +141,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
     padding-bottom:8px;
     margin:8px;
     border-bottom: 1px solid var(--playground-shelf-border);
@@ -149,6 +150,16 @@
 
 .playground-shelf button{
     margin-right:8px;
+}
+
+.reset-button{
+    background: var(--share-button-background);
+    border:none;
+    border-radius: 5px;
+
+    font-size: 20px;
+    height:30px;
+    color:var(--share-button-text-color);
 }
 
 select {
