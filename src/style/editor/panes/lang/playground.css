@@ -32,6 +32,7 @@
     flex-direction: column;
     height:-webkit-fill-available;
     max-width:70vw;
+    flex:1;
 }
 .playground-main > div{
     margin-top:8px;
