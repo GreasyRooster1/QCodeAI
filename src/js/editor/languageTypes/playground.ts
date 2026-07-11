@@ -45,10 +45,6 @@ class PlaygroundType extends ProjectType {
         super(allowShare);
     }
 
-    onLoad(): void {
-
-    }
-
     setupEditor(){
         let content = this.getPlaygroundContent()
         document.querySelector(".code-pane")!.innerHTML = `
@@ -194,12 +190,29 @@ class PlaygroundType extends ProjectType {
 
     }
 
+    serialize():any{
+
+    }
+
+    deserialize(data:any){
+
+    }
+
     /* unused overrides */
     setupEditorLanguage(){
         //dont setup any language
     }
 
     onSave(){
+        let data = this.serialize();
+        set(ref(db,"userdata/"+getStoredUser().uid+"/projects/"+this.projectId+"/data"),data);
+    }
+
+    onLoad(): void {
+        get(ref(db,"userdata/"+getStoredUser().uid+"/projects/"+this.projectId+"/data")).then((snap)=>{
+            let data = snap.val();
+            this.deserialize(data);
+        });
     }
 
     onRun(errorCallback:RunErrCallback) {
