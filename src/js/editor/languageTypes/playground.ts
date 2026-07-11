@@ -67,6 +67,9 @@ class PlaygroundType extends ProjectType {
     }
 
     createPanes(hasLesson:boolean){
+        if(!hasLesson){
+            return;
+        }
         Split(['.steps-pane', '.code-pane'], {
             sizes: [30, 70],
         });
