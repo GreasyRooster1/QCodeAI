@@ -57,7 +57,7 @@ class InfiniCraftPlayground extends PlaygroundType{
                 </div>
             </div>
             <div class="playground-section" style="flex:1">
-                <iframe class="share-board-exec-frame">
+                <iframe id="share-board-exec-frame" src="exec.html">
                 
                 </iframe>
             </div>
@@ -115,7 +115,13 @@ class InfiniCraftPlayground extends PlaygroundType{
 
 const INFINI_RUNTIME_CODE = `
 
+function setup(){
 
+}
+
+function draw(){
+
+}
 
 `
 
