@@ -53,6 +53,10 @@ class PlaygroundType extends ProjectType {
         let content = this.getPlaygroundContent()
         document.querySelector(".code-pane")!.innerHTML = `
             <div class="playground-main">
+                <div class="playground-shelf">
+                    <button class="save-button">Save </button>
+                    <button class="share-button">Share </button>
+                </div>
                 ${content}
             </div>
         `;
