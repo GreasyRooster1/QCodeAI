@@ -80,6 +80,20 @@ class LLMSandboxPlayground extends PlaygroundType{
             this.showError(".playground-ai-text","An error occurred generating your response!")
         })
     }
+
+    serialize(): any {
+        return {
+            provider:this.getInput("provider"),
+            temperature:this.getInput("temp"),
+            top_p:this.getInput("top_p"),
+            frequency_penalty:this.getInput("freq_penalty"),
+            prompt:this.getInput("prompt"),
+        }
+    }
+
+    deserialize(data) {
+
+    }
 }
 
 export {LLMSandboxPlayground};
