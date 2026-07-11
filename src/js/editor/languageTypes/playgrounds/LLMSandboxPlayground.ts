@@ -92,8 +92,9 @@ class LLMSandboxPlayground extends PlaygroundType{
     }
 
     deserialize(data:any) {
+        console.log(data)
         this.setInput("provider", data.provider);
-        this.setInput("temp", data.temp);
+        this.setInput("temp", data.temperature);
         this.setInput("top_p", data.top_p);
         this.setInput("freq_penalty", data.freq_penalty);
         this.setInput("text-input", data.user_prompt);

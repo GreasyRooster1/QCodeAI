@@ -111,7 +111,8 @@ class PlaygroundType extends ProjectType {
         }else{
             return;
         }
-
+        const event = new Event('input', {});
+        el!.dispatchEvent(event);
     }
 
     setupInputs(){
