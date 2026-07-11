@@ -15,6 +15,7 @@ class InfiniCraftPlayground extends PlaygroundType{
     }
 
     getPlaygroundContent():string {
+
         return `
             <div class="playground-title">Infini Craft Sandbox</div>
             <div class="playground-section">
@@ -69,7 +70,6 @@ class InfiniCraftPlayground extends PlaygroundType{
     }
 
     startGame(){
-        this.frame = (document.querySelector('#share-board-exec-frame') as HTMLIFrameElement);
         if (this.iWindow === null) {
             return;
         }
@@ -81,6 +81,14 @@ class InfiniCraftPlayground extends PlaygroundType{
         this.iWindow = this.frame?.contentWindow;
         console.log(this.iWindow);
         this.startGame()
+    }
+
+    playgroundSetup(){
+        this.frame = (document.querySelector('#share-board-exec-frame') as HTMLIFrameElement);
+        this.frame.addEventListener("load", () => {
+            this.onLoadedFrame()
+        });
+        this.onLoadedFrame()
     }
 
     onRunTrigger() {

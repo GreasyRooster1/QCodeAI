@@ -79,6 +79,7 @@ class PlaygroundType extends ProjectType {
             this.reset();
         })
         this.setupInputs();
+        this.playgroundSetup();
     }
 
     createPanes(hasLesson:boolean){
@@ -221,6 +222,10 @@ class PlaygroundType extends ProjectType {
     }
 
     deserialize(data:any){
+
+    }
+
+    playgroundSetup(){
 
     }
 
