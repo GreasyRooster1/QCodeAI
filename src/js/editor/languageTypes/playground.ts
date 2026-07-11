@@ -72,6 +72,11 @@ class PlaygroundType extends ProjectType {
         document.querySelector(".playground-run-trigger")!.addEventListener("click",(e)=>{
             this.onRunTrigger()
         })
+
+        document.querySelector(".reset-button")!.addEventListener("click",(e)=>{
+            console.log("Reset button clicked!")
+            this.reset();
+        })
         this.setupInputs();
     }
 
@@ -215,6 +220,10 @@ class PlaygroundType extends ProjectType {
     }
 
     deserialize(data:any){
+
+    }
+
+    reset(){
 
     }
 

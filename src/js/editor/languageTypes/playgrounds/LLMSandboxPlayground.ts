@@ -99,6 +99,14 @@ class LLMSandboxPlayground extends PlaygroundType{
         this.setInput("freq_penalty", data.freq_penalty);
         this.setInput("text-input", data.user_prompt);
     }
+
+    reset(){
+        this.setInput("provider", "groq");
+        this.setInput("temp", 0.7);
+        this.setInput("top_p", 0.95);
+        this.setInput("freq_penalty", .3);
+        this.setInput("text-input", "");
+    }
 }
 
 export {LLMSandboxPlayground};
