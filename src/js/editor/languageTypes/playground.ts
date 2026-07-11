@@ -41,7 +41,8 @@ YOU MUST KEEP THE CONVERSATION APPROPRIATE FOR A 10 YEAR OLD CHILD.
 
 class PlaygroundType extends ProjectType {
     static identifier = "playground"
-    constructor(allowShare:false) {
+
+    constructor(allowShare: boolean) {
         super(allowShare);
     }
 

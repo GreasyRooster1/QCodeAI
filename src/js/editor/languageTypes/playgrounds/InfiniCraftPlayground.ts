@@ -5,8 +5,13 @@ import {makeRequest} from "@js/editor/utils/cloudAgentAPI";
 
 class InfiniCraftPlayground extends PlaygroundType{
     static identifier = "infinicraft"
+
+    private frame: HTMLIFrameElement | null | undefined;
+    private iWindow: WindowProxy | null | undefined;
+
     constructor() {
         super(true);
+        this.iWindow = null;
     }
 
     getPlaygroundContent():string {
@@ -51,14 +56,31 @@ class InfiniCraftPlayground extends PlaygroundType{
                 </div>
             </div>
             <div class="playground-section" style="flex:1">
-                <div class="playground-canvas-parent">
+                <iframe class="share-board-exec-frame">
                 
-                </div>
+                </iframe>
             </div>
             <div class="playground-section">    
                 <div class="playground-button playground-run-trigger">Send</div>
             </div>
         `;
+
+
+    }
+
+    startGame(){
+        this.frame = (document.querySelector('#share-board-exec-frame') as HTMLIFrameElement);
+        if (this.iWindow === null) {
+            return;
+        }
+
+        this.iWindow?.postMessage(INFINI_RUNTIME_CODE);
+    }
+
+    onLoadedFrame(){
+        this.iWindow = this.frame?.contentWindow;
+        console.log(this.iWindow);
+        this.startGame()
     }
 
     onRunTrigger() {
@@ -82,5 +104,11 @@ class InfiniCraftPlayground extends PlaygroundType{
         })
     }
 }
+
+const INFINI_RUNTIME_CODE = `
+
+
+
+`
 
 export {InfiniCraftPlayground};
