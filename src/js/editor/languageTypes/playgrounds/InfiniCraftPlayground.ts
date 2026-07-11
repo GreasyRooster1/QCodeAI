@@ -46,7 +46,8 @@ class InfiniCraftPlayground extends PlaygroundType{
                 </div>
                 <div class="playground-sep"></div>
                 <div class="playground-input">
-                    <textarea id="text-input" name="text-input" rows="4" cols="50" placeholder="Type your message here..."></textarea>
+                    <label for="sys-prompt">System Prompt</label>
+                    <textarea id="sys-prompt" name="sys-prompt" rows="4" cols="50" placeholder="Type your system prompt here..."></textarea>
                 </div>
             </div>
             <div class="playground-section" style="flex:1">
