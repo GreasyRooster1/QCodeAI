@@ -166,6 +166,11 @@
     align-self: flex-start;;
 }
 
+iframe{
+    border: none;
+    flex:1;
+}
+
 .reset-button{
     background: var(--share-button-background);
     border:none;
