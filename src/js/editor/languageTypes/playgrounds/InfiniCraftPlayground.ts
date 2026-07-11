@@ -293,8 +293,11 @@ function mouseReleased(){
   selectedEl = null;
 }
 
-function getType(){
-  return "WIP";
+function getType(a,b){
+    if (parent === null) {
+        return;
+    }
+    parent.postMessage(JSON.stringify({a:a,b:b}));
 }
 function mouseWheel(event){
   barOffset+=event.delta/10;
@@ -309,10 +312,6 @@ function collision(x1, y1, w1, h1, x2, y2, w2, h2) {
     y1 + h1 > y2
   );
 }
-
-
-
-
 `
 
 export {InfiniCraftPlayground};

@@ -46,22 +46,6 @@ const oldLog = console.log;
 const oldWarn = console.warn;
 const oldErr = console.error;
 
-console.log = function (...args) {
-    logMessage("log",args);
-}
-
-console.warn = function (...args) {
-    logMessage("warn",args);
-}
-
-console.error = function (...args) {
-    logMessage("error",args);
-}
-
-//log errors
-window.onerror = function(error) {
-    logMessage("error",error);
-}
 
 function logMessage(type,...args){
     if (parent === null) {
