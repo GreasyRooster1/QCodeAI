@@ -68,6 +68,7 @@ class PlaygroundType extends ProjectType {
 
     createPanes(hasLesson:boolean){
         if(!hasLesson){
+            document.querySelector(".steps-pane")!.remove()
             return;
         }
         Split(['.steps-pane', '.code-pane'], {
