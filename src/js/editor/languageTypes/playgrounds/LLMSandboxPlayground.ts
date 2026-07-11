@@ -67,8 +67,8 @@ class LLMSandboxPlayground extends PlaygroundType{
             provider:this.getInput("provider"),
             temperature:this.getInput("temp"),
             user_prompt:this.getInput("text-input"),
-            top_p:0.95,
-            frequency_penalty:0.3,
+            top_p:this.getInput("top_p"),
+            frequency_penalty:this.getInput("freq_penalty"),
             system_prompt:SAFETY_SYS_PROMPT
             ,
         }).then(data=>{

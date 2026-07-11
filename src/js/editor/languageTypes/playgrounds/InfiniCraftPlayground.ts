@@ -1,4 +1,4 @@
-import {PlaygroundType, SAFETY_SYS_PROMPT} from "@js/editor/languageTypes/playground";
+import {AIAPI, PlaygroundType, SAFETY_SYS_PROMPT} from "@js/editor/languageTypes/playground";
 import {ProjectType, RunErrCallback} from "@js/editor/languageTypes/projectType";
 import {Language} from "@js/editor/codeEditor";
 import {makeRequest} from "@js/editor/utils/cloudAgentAPI";
@@ -75,9 +75,22 @@ class InfiniCraftPlayground extends PlaygroundType{
             return;
         }
 
+        let data = {
+            provider:this.getInput("provider"),
+            temperature:this.getInput("temp"),
+            user_prompt:this.getInput("text-input"),
+            top_p:this.getInput("top_p"),
+            frequency_penalty:this.getInput("freq_penalty"),
+            system_prompt:SAFETY_SYS_PROMPT,
+        }
+        let serialData = JSON.stringify(data);
+
         getIdToken().then((token=>{
             this.iWindow?.postMessage(`
-            let token = "${token}"
+            let token = "${token}";
+            const AIAPI = "${AIAPI}";
+            const aiData = ${serialData};
+            
             ${INFINI_RUNTIME_CODE}
             `);
         }));
@@ -300,8 +313,8 @@ function mouseReleased(){
 }
 
 function getType(a,b){
-    fetch(AIAPI+url,{
-        method:method,
+    fetch(AIAPI+"/ai/generate",{
+        method:"POST",
         headers:{
             "Content-Type":"application/json",
             "Authorization":"Bearer "+token,
