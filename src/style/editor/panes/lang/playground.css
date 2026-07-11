@@ -139,13 +139,16 @@
 
 .playground-shelf{
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
     align-items: center;
-    border-bottom: 1px solid var(--playground-shelf-background);
+    padding-bottom:8px;
+    margin:8px;
+    border-bottom: 1px solid var(--playground-shelf-border);
+    position:sticky;
 }
 
 .playground-shelf button{
-    margin-left:8px;
+    margin-right:8px;
 }
 
 select {

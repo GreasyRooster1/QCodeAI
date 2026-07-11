@@ -41,8 +41,8 @@ YOU MUST KEEP THE CONVERSATION APPROPRIATE FOR A 10 YEAR OLD CHILD.
 
 class PlaygroundType extends ProjectType {
     static identifier = "playground"
-    constructor() {
-        super(true);
+    constructor(allowShare:false) {
+        super(allowShare);
     }
 
     onLoad(): void {
@@ -60,6 +60,10 @@ class PlaygroundType extends ProjectType {
                 ${content}
             </div>
         `;
+
+        if(!this.allowShare){
+            document.querySelector(".share-button")?.remove();
+        }
 
         document.querySelector(".output-pane")!.remove();
         document.querySelector(".pane-container")!.classList.add("playground-style-override")
