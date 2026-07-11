@@ -2,6 +2,7 @@ import {PlaygroundType, SAFETY_SYS_PROMPT} from "@js/editor/languageTypes/playgr
 import {ProjectType, RunErrCallback} from "@js/editor/languageTypes/projectType";
 import {Language} from "@js/editor/codeEditor";
 import {makeRequest} from "@js/editor/utils/cloudAgentAPI";
+import {getIdToken} from "@js/api/auth";
 
 class InfiniCraftPlayground extends PlaygroundType{
     static identifier = "infinicraft"
@@ -74,7 +75,12 @@ class InfiniCraftPlayground extends PlaygroundType{
             return;
         }
 
-        this.iWindow?.postMessage(INFINI_RUNTIME_CODE);
+        getIdToken().then((token=>{
+            this.iWindow?.postMessage(`
+            let token = "${token}"
+            ${INFINI_RUNTIME_CODE}
+            `);
+        }));
     }
 
     onLoadedFrame(){
@@ -294,10 +300,25 @@ function mouseReleased(){
 }
 
 function getType(a,b){
-    if (parent === null) {
-        return;
-    }
-    parent.postMessage(JSON.stringify({a:a,b:b}));
+    fetch(AIAPI+url,{
+        method:method,
+        headers:{
+            "Content-Type":"application/json",
+            "Authorization":"Bearer "+token,
+        },
+        body:JSON.stringify(data)
+    }).then(async res=>{
+        if(!res.ok){
+            console.error("playground request returned not ok",res)
+            reject(await res.text())
+            return;
+        }
+        let data = await res.json()
+        resolve(data)
+    }).catch((e)=>{
+        console.error("playground request failed with",e)
+        reject(e)
+    })
 }
 function mouseWheel(event){
   barOffset+=event.delta/10;
