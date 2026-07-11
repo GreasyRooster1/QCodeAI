@@ -6,7 +6,7 @@ import {makeRequest} from "@js/editor/utils/cloudAgentAPI";
 class InfiniCraftPlayground extends PlaygroundType{
     static identifier = "infinicraft"
     constructor() {
-        super();
+        super(true);
     }
 
     getPlaygroundContent():string {
@@ -51,8 +51,8 @@ class InfiniCraftPlayground extends PlaygroundType{
                 </div>
             </div>
             <div class="playground-section" style="flex:1">
-                <div class="playground-ai-text">
-                    <div class="playground-placeholder-text">AI response will show up here</div>
+                <div class="playground-canvas-parent">
+                
                 </div>
             </div>
             <div class="playground-section">    

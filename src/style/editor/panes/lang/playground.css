@@ -152,6 +152,20 @@
     margin-right:8px;
 }
 
+.playground-canvas-parent{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.playground-canvas-parent canvas{
+    flex: 1;
+    min-width: 0;
+    aspect-ratio: 16 / 9;
+    align-self: flex-start;;
+}
+
 .reset-button{
     background: var(--share-button-background);
     border:none;
