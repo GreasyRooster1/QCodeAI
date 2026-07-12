@@ -127,6 +127,11 @@ class InfiniCraftPlayground extends PlaygroundType{
             let elementCol = "${this.getInput("element_color")}"
             let borderCol = "${this.getInput("border_color")}";
             let textCol = "${this.getInput("text_color")}";
+            let discoveredElements = [
+            "${this.getInput("element_1")}",
+            "${this.getInput("element_2")}",
+            "${this.getInput("element_3")}",
+            "${this.getInput("element_4")}"];
             
             ${INFINI_RUNTIME_CODE}
             `
@@ -298,7 +303,6 @@ class Element{
 
 const lineCount = 20;
 let elements = [];
-let discoveredElements = ["Air","Earth","Fire","Water"];
 let selectedEl = null;
 let mouseClicked = false;
 let lastMousePressed = false;
