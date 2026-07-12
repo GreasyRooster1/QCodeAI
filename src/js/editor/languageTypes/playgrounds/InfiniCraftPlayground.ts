@@ -154,10 +154,14 @@ class InfiniCraftPlayground extends PlaygroundType{
         });
         this.onLoadedFrame()
         document.querySelector(".reload-button")!.addEventListener("click", () => {
-            this.frame?.contentWindow?.location.reload()
-            document.querySelector(".combo-list")!.innerHTML ="";
+            this.reloadGame()
         })
         document.querySelector(".reset-button")!.remove()
+    }
+
+    reloadGame(){
+        this.frame?.contentWindow?.location.reload()
+        document.querySelector(".combo-list")!.innerHTML ="";
     }
 
     playgroundSetup(){
@@ -194,7 +198,7 @@ class InfiniCraftPlayground extends PlaygroundType{
         this.setInput("element_color", data.element_color);
         this.setInput("border_color", data.border_color);
         this.setInput("text_color", data.text_color);
-
+        this.reloadGame();
     }
 }
 
