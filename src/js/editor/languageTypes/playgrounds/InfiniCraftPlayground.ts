@@ -61,30 +61,31 @@ class InfiniCraftPlayground extends PlaygroundType{
                 <iframe id="share-board-exec-frame" src="exec.html">
                 
                 </iframe>
-                <div class="playground-section" style="flex-shrink: 0;justify-content: space-between">
-                    <div>
-                        <div class="playground-rows">
-                            <div>
-                                <label for="background_color">Background color</label>
-                                <input type="color" id="background_color" name="background_color" value="#202020" />
-                            </div>
-                            <div>
-                                <label for="line_color">Line color</label>
-                                <input type="color" id="line_color" name="line_color" value="#4d4d4d" />
-                            </div>
-                            <div>
-                                <label for="element_color">Element color</label>
-                                <input type="color" id="element_color" name="element_color" value="#303030" />
-                            </div>
-                            <div>
-                                <label for="border_color">Border color</label>
-                                <input type="color" id="border_color" name="border_color" value="#6f0ed1" />
-                            </div>
-                            <div>
-                                <label for="text_color">Text color</label>
-                                <input type="color" id="text_color" name="text_color" value="#ffffff" />
-                            </div>
+                <div class="playground-section" style="flex-shrink: 0">
+                    <div class="playground-rows">
+                        <div>
+                            <label for="background_color">Background color</label>
+                            <input type="color" id="background_color" name="background_color" value="#202020" />
                         </div>
+                        <div>
+                            <label for="line_color">Line color</label>
+                            <input type="color" id="line_color" name="line_color" value="#4d4d4d" />
+                        </div>
+                        <div>
+                            <label for="element_color">Element color</label>
+                            <input type="color" id="element_color" name="element_color" value="#303030" />
+                        </div>
+                        <div>
+                            <label for="border_color">Border color</label>
+                            <input type="color" id="border_color" name="border_color" value="#6f0ed1" />
+                        </div>
+                        <div>
+                            <label for="text_color">Text color</label>
+                            <input type="color" id="text_color" name="text_color" value="#ffffff" />
+                        </div>
+                    </div>
+                    <div class="playground-section" style="flex:1; overflow-y:scroll; margin-bottom:8px">
+                    
                     </div>
                     <div class="playground-button reload-button">Reload</div>
                 </div>
@@ -137,6 +138,16 @@ class InfiniCraftPlayground extends PlaygroundType{
         this.frame = (document.querySelector('#share-board-exec-frame') as HTMLIFrameElement);
         this.frame.addEventListener("load", () => {
             this.onLoadedFrame()
+        });
+        window.addEventListener("message", (event) => {
+            let log;
+            try {
+                log = JSON.parse(event.data);
+            }catch (error) {
+                return
+            }
+            console.log("received log from frame: "+log.type+" - "+log.message);
+
         });
         this.onLoadedFrame()
         document.querySelector(".reload-button")!.addEventListener("click", () => {
