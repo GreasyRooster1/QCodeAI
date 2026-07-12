@@ -84,6 +84,13 @@ class InfiniCraftPlayground extends PlaygroundType{
                             <input type="color" id="text_color" name="text_color" value="#ffffff" />
                         </div>
                     </div>
+                    <div class="playground-rows">
+                        <label for="element_1">Starting Elements:</label>
+                        <input type="text" id="element_1" name="element_1" placeholder="Air" value="Air">
+                        <input type="text" id="element_2" name="element_2" placeholder="Earth" value="Earth">
+                        <input type="text" id="element_3" name="element_3" placeholder="Fire" value="Fire">
+                        <input type="text" id="element_4" name="element_4" placeholder="Water" value="Water">
+                    </div>
                     <div class="playground-section combo-list" style="flex:1; overflow-y:scroll; margin-bottom:8px">
                     
                     </div>
