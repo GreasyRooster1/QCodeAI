@@ -36,6 +36,9 @@ class GameStudioPlayground extends PlaygroundType{
                     <iframe id="share-board-exec-frame" src="exec.html">
                 
                     </iframe>
+                    <div class="spinner-container">
+                    
+                    </div>
                 </div>
             </div>
             <div class="playground-section">    
@@ -44,8 +47,13 @@ class GameStudioPlayground extends PlaygroundType{
         `;
     }
 
+    playgroundSetup(){
+        this.setupFrame();
+
+    }
+
     onRunTrigger() {
-        this.showSpinner(".playground-ai-text")
+        this.showSpinner(".spinner-container")
         this.hideError()
         this.makeRequest("/ai/generate","POST",{
             provider:this.getInput("provider"),
@@ -58,14 +66,14 @@ class GameStudioPlayground extends PlaygroundType{
         }).then(data=>{
             console.log(data)
             this.hideSpinner()
-            document.querySelector(".playground-ai-text")!.innerHTML = data.output;
+            this.startGame(data.output)
         }).catch(e=>{
             this.hideSpinner()
-            this.showError(".playground-ai-text","An error occurred generating your response!")
+            this.showError(".spinner-container","An error occurred generating your response!")
         })
     }
 
-    startGame(code){
+    startGame(code:string){
         if (this.iWindow === null) {
             return;
         }
@@ -76,7 +84,6 @@ class GameStudioPlayground extends PlaygroundType{
     onLoadedFrame(){
         this.iWindow = this.frame?.contentWindow;
         console.log(this.iWindow);
-        this.startGame()
     }
 
     setupFrame(){
