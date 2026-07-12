@@ -17,7 +17,8 @@ some common p5js functions include:
 - fill(red,green,blue) -> sets the fill color
 - stroke(red,green,blue) -> sets the outline color
 - background(red,green,blue) -> clears the screen with a color
-
+the screen is 500 by 500 pixels
+dont call createCanvas()
 `;
 
 class GameStudioPlayground extends PlaygroundType{
