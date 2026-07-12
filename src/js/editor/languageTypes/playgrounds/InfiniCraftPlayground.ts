@@ -57,10 +57,29 @@ class InfiniCraftPlayground extends PlaygroundType{
                     <textarea id="system_prompt" name="system_prompt" rows="4" cols="50" placeholder="Type your system prompt here..."></textarea>
                 </div>
             </div>
-            <div class="playground-section" style="flex:1">
+            <div class="playground-section playground-rows" style="flex:1">
                 <iframe id="share-board-exec-frame" src="exec.html">
                 
                 </iframe>
+                <div class="playground-section" style="flex-shrink: 0;justify-content: space-between">
+                    <div>
+                        <div class="playground-rows">
+                            <div>
+                            <input type="color" id="background_color" name="background_color" value="#e66465" />
+                            <label for="background_color">Background color</label>
+                            </div>
+                            <div>
+                            <input type="color" id="background_color" name="background_color" value="#e66465" />
+                            <label for="background_color">Background color</label>
+                            </div>
+                            <div>
+                            <input type="color" id="background_color" name="background_color" value="#e66465" />
+                            <label for="background_color">Background color</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="playground-button">Reload</div>
+                </div>
             </div>
         `;
 
@@ -111,9 +130,6 @@ class InfiniCraftPlayground extends PlaygroundType{
     playgroundSetup(){
         this.setupFrame();
 
-    }
-
-    onRunTrigger() {
     }
 }
 
