@@ -86,13 +86,15 @@ class InfiniCraftPlayground extends PlaygroundType{
         let serialData = JSON.stringify(data);
 
         getIdToken().then((token=>{
-            this.iWindow?.postMessage(`
+            let code = `
             let token = "${token}";
             const AIAPI = "${AIAPI}";
-            const aiData = "${serialData}";
+            const aiData = \`${serialData}\`;
             
             ${INFINI_RUNTIME_CODE}
-            `);
+            `
+            console.log(code);
+            this.iWindow?.postMessage(code);
         }));
     }
 
