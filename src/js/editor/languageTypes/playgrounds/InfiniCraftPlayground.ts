@@ -84,7 +84,7 @@ class InfiniCraftPlayground extends PlaygroundType{
                             <input type="color" id="text_color" name="text_color" value="#ffffff" />
                         </div>
                     </div>
-                    <div class="playground-section combo-list" style="flex:1; overflow-y:scroll; margin-bottom:8px">
+                    <div class="playground-section combo-list" style="height:40vh; overflow-y:scroll; margin-bottom:8px">
                     
                     </div>
                     <div class="playground-rows">
