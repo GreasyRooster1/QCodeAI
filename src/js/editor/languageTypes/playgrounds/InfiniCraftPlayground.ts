@@ -84,7 +84,7 @@ class InfiniCraftPlayground extends PlaygroundType{
                             <input type="color" id="text_color" name="text_color" value="#ffffff" />
                         </div>
                     </div>
-                    <div class="playground-section" style="flex:1; overflow-y:scroll; margin-bottom:8px">
+                    <div class="playground-section combo-list" style="flex:1; overflow-y:scroll; margin-bottom:8px">
                     
                     </div>
                     <div class="playground-button reload-button">Reload</div>
@@ -148,6 +148,9 @@ class InfiniCraftPlayground extends PlaygroundType{
             }
             console.log("received log from frame: "+log.type+" - "+log.message);
 
+            if(log.type=="log") {
+                document.querySelector(".combo-list")!.innerHTML += "<br/>"+log.message;
+            }
         });
         this.onLoadedFrame()
         document.querySelector(".reload-button")!.addEventListener("click", () => {
@@ -392,13 +395,10 @@ function mouseReleased(){
 }
 
 function getType(a,b){
-console.log(aiData);
     let d = JSON.parse(aiData)
     let prompt = a+" + "+b;
-    console.log(prompt);
     d.user_prompt = prompt;
     
-    console.log(d);
     return new Promise((resolve,reject)=>{
         fetch(AIAPI+"/ai/generate",{
             method:"POST",
