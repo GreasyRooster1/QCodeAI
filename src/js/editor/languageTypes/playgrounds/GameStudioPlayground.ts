@@ -127,6 +127,7 @@ class GameStudioPlayground extends PlaygroundType{
         return {
             provider:this.getInput("provider"),
             user_prompt:this.getInput("text-input"),
+            code:this.currentCode,
         }
     }
 
@@ -134,6 +135,7 @@ class GameStudioPlayground extends PlaygroundType{
         console.log(data)
         this.setInput("provider", data.provider);
         this.setInput("text-input", data.user_prompt);
+        this.currentCode = data.code;
     }
 
     reset(){
