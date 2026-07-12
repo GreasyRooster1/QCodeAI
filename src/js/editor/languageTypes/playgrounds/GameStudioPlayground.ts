@@ -4,6 +4,22 @@ import {Language} from "@js/editor/codeEditor";
 import {makeRequest} from "@js/editor/utils/cloudAgentAPI";
 import {getIdToken} from "@js/api/auth";
 
+
+const GAME_STUDIO_SYS_PROMPT = `
+You are a developer writing a simple game for the user. Respond only with pure javascript, no markdown blocks,
+html, or css. Your code will go directly into a script tag, so anything other than pure javascript will fail.
+You have access to the p5js library, already imported and setup for you. you must write out the setup and draw functions
+for the program to run.
+some common p5js functions include:
+- rect(x,y,width,height) -> draws a rectangle
+- ellipse(x,y,width,height) -> draws an ellipse
+- square(x,y,size) -> draws a square
+- fill(red,green,blue) -> sets the fill color
+- stroke(red,green,blue) -> sets the outline color
+- background(red,green,blue) -> clears the screen with a color
+
+`;
+
 class GameStudioPlayground extends PlaygroundType{
     static identifier = "gamestudio"
     private frame: HTMLIFrameElement | null | undefined;
@@ -33,9 +49,12 @@ class GameStudioPlayground extends PlaygroundType{
                     <div class="playground-input">
                         <textarea id="text-input" name="text-input" rows="4" cols="50" placeholder="Type your message here..."></textarea>
                     </div>
-                    <iframe id="share-board-exec-frame" src="exec.html">
-                
-                    </iframe>
+                    <div>
+                        <div class="playground-button reload-button">Reload</div>
+                        <iframe id="share-board-exec-frame" src="exec.html">
+                          
+                        </iframe>
+                    </div>
                 </div>
                 <div class="spinner-container">
                     
@@ -61,8 +80,8 @@ class GameStudioPlayground extends PlaygroundType{
             user_prompt:this.getInput("text-input"),
             top_p:1.0,
             frequency_penalty:0.0,
-            system_prompt:SAFETY_SYS_PROMPT
-            ,
+            system_prompt:GAME_STUDIO_SYS_PROMPT+"\n\n\n"+SAFETY_SYS_PROMPT,
+            max_tokens:500,
         }).then(data=>{
             console.log(data)
             this.hideSpinner()
@@ -92,6 +111,9 @@ class GameStudioPlayground extends PlaygroundType{
             this.onLoadedFrame()
         });
         this.onLoadedFrame()
+        document.querySelector(".reload-button")!.addEventListener("click", () => {
+            this.frame?.contentWindow?.location.reload()
+        })
         document.querySelector(".reset-button")!.remove()
     }
 
