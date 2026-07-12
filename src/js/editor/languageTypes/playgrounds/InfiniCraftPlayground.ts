@@ -260,6 +260,7 @@ class Element{
                     discoveredElements.push(res);
                 }
                 comboCache[this.type+"|"+el.type] = res;
+                console.log(this.type+" + "+el.type+" = "+res);
                 elements.push(new Element(el.x,el.y,res));
             })
         }
