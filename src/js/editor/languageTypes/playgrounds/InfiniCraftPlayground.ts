@@ -66,23 +66,23 @@ class InfiniCraftPlayground extends PlaygroundType{
                         <div class="playground-rows">
                             <div>
                                 <label for="background_color">Background color</label>
-                                <input type="color" id="background_color" name="background_color" value="#e66465" />
+                                <input type="color" id="background_color" name="background_color" value="#202020" />
                             </div>
                             <div>
                                 <label for="line_color">Line color</label>
-                                <input type="color" id="line_color" name="line_color" value="#e66465" />
+                                <input type="color" id="line_color" name="line_color" value="#4d4d4d" />
                             </div>
                             <div>
                                 <label for="element_color">Element color</label>
-                                <input type="color" id="element_color" name="element_color" value="#e66465" />
+                                <input type="color" id="element_color" name="element_color" value="#303030" />
                             </div>
                             <div>
                                 <label for="border_color">Border color</label>
-                                <input type="color" id="border_color" name="border_color" value="#e66465" />
+                                <input type="color" id="border_color" name="border_color" value="#6f0ed1" />
                             </div>
                             <div>
                                 <label for="text_color">Text color</label>
-                                <input type="color" id="text_color" name="text_color" value="#e66465" />
+                                <input type="color" id="text_color" name="text_color" value="#ffffff" />
                             </div>
                         </div>
                     </div>
@@ -105,6 +105,7 @@ class InfiniCraftPlayground extends PlaygroundType{
             top_p:this.getInput("top_p"),
             frequency_penalty:this.getInput("freq_penalty"),
             system_prompt:this.getInput("system_prompt"),
+            max_tokens:5,
         }
         let serialData = JSON.stringify(data);
         console.log(this.getInput("background_color"))
