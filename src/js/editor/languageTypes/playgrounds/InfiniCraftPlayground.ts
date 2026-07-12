@@ -248,7 +248,7 @@ function draw() {
 }
 
 function drawBar(){
-  fill(backgroundCol)K;
+  fill(backgroundCol);
   rect(0,350,500,200);
   let cols = segmentDiscovered();
   drawDiscovered(cols);
