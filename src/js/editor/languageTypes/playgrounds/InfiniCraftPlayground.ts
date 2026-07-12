@@ -197,6 +197,9 @@ class Element{
         this.dead=true;
         el.dead=true;
         getType(this.type,el.type).then((res)=>{
+            if(!discoveredElements.includes(res)){
+                discoveredElements.push(res);
+            }
             elements.push(new Element(el.x,el.y,res));
         })
       }
