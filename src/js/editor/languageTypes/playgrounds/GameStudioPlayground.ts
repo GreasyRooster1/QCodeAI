@@ -11,7 +11,7 @@ class GameStudioPlayground extends PlaygroundType{
 
     getPlaygroundContent():string {
         return `
-            <div class="playground-title">LLM Sandbox</div>
+            <div class="playground-title">Game Studio</div>
             <div class="playground-section">
                 <div class="playground-rows">
                     <div class="playground-input">
@@ -22,36 +22,16 @@ class GameStudioPlayground extends PlaygroundType{
                           <option value="openai">OpenAI</option>
                         </select>
                     </div>
-                    <div class="playground-input playground-slider">
-                        <label for="temp">Temperature</label>
-                        <div>
-                            <input type="range" id="temp" name="temp" min="0.0" max="2.0" value=".7" step=".01">
-                            <span>.7</span>
-                        </div>
-                    </div>
-                    <div class="playground-input playground-slider">
-                        <label for="top_p">Top P</label>
-                        <div>
-                            <input type="range" id="top_p" name="temp" min="0.0" max="1.0" value=".95" step=".01">
-                            <span>.95</span>
-                        </div>
-                    </div>
-                    <div class="playground-input playground-slider">
-                        <label for="freq_penalty">Frequency Penalty</label>
-                        <div>
-                            <input type="range" id="freq_penalty" name="temp" min="-2.0" max="2.0" value=".3" step=".01">
-                            <span>.3</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="playground-sep"></div>
-                <div class="playground-input">
-                    <textarea id="text-input" name="text-input" rows="4" cols="50" placeholder="Type your message here..."></textarea>
                 </div>
             </div>
             <div class="playground-section" style="flex:1">
-                <div class="playground-ai-text">
-                    <div class="playground-placeholder-text">AI response will show up here</div>
+                <div class="playground-rows" style="flex:1">
+                    <div class="playground-input">
+                        <textarea id="text-input" name="text-input" rows="4" cols="50" placeholder="Type your message here..."></textarea>
+                    </div>
+                    <iframe id="share-board-exec-frame" src="exec.html">
+                
+                    </iframe>
                 </div>
             </div>
             <div class="playground-section">    
