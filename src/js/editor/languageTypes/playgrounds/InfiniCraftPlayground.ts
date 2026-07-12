@@ -213,12 +213,17 @@ class Element{
       if(collision(el.x,el.y,el.w,el.h,this.x,this.y,this.w,this.h)){
         this.dead=true;
         el.dead=true;
-        getType(this.type,el.type).then((res)=>{
-            if(!discoveredElements.includes(res)){
-                discoveredElements.push(res);
-            }
-            elements.push(new Element(el.x,el.y,res));
-        })
+        if(comboCache[this.type+"|"+el.type]){
+            elements.push(new Element(el.x,el.y,comboCache[this.type+"|"+el.type]));
+        }else{
+            getType(this.type,el.type).then((res)=>{
+                if(!discoveredElements.includes(res)){
+                    discoveredElements.push(res);
+                }
+                comboCache[this.type+"|"+el.type] = res;
+                elements.push(new Element(el.x,el.y,res));
+            })
+        }
       }
     }
   }
@@ -232,6 +237,7 @@ let selectedEl = null;
 let mouseClicked = false;
 let lastMousePressed = false;
 let barOffset = 0;
+let comboCache = {}
 
 function setup() {
 }
