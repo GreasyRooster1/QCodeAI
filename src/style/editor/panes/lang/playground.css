@@ -334,6 +334,50 @@ select:-moz-focusring {
 }
 
 
+input[type="text"] {
+    /* strip native chrome */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    /* box */
+    flex: 1;
+    display: block;
+    height: 40px;
+    padding: 2px 10px;
+    font: inherit;
+    font-size: 15px;
+    line-height: 1;
+    color: var(--c-white);
+    background-color: var(--playground-input-background);
+
+    /* modern rounded edge + 1px light border */
+    border: 1px solid var(--playground-section-border);
+    border-radius: 10px;
+
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+input[type="text"]::placeholder {
+    color: var(--c-gray-80);
+}
+
+input[type="text"]:hover {
+    border-color: var(--c-gray-68);
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: var(--c-purple-bright);
+    box-shadow: 0 0 0 3px rgba(111, 14, 209, 0.25);
+}
+
+input[type="text"]:disabled {
+    background-color: var(--c-gray-20);
+    color: var(--c-gray-80);
+    cursor: not-allowed;
+}
+
 textarea {
     /* strip native chrome */
     -webkit-appearance: none;
