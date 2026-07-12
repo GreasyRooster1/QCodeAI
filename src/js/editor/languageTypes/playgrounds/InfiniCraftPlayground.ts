@@ -53,8 +53,8 @@ class InfiniCraftPlayground extends PlaygroundType{
                 </div>
                 <div class="playground-sep"></div>
                 <div class="playground-input">
-                    <label for="sys-prompt">System Prompt</label>
-                    <textarea id="sys-prompt" name="sys-prompt" rows="4" cols="50" placeholder="Type your system prompt here..."></textarea>
+                    <label for="system_prompt">System Prompt</label>
+                    <textarea id="system_prompt" name="system_prompt" rows="4" cols="50" placeholder="Type your system prompt here..."></textarea>
                 </div>
             </div>
             <div class="playground-section" style="flex:1">
@@ -80,7 +80,7 @@ class InfiniCraftPlayground extends PlaygroundType{
             temperature:this.getInput("temp"),
             top_p:this.getInput("top_p"),
             frequency_penalty:this.getInput("freq_penalty"),
-            system_prompt:SAFETY_SYS_PROMPT,
+            system_prompt:this.getInput("system_prompt"),
         }
         let serialData = JSON.stringify(data);
 
@@ -315,7 +315,8 @@ function mouseReleased(){
 }
 
 function getType(a,b){
-    let d = {..aiData}
+console.log(aiData);
+    let d = JSON.parse(aiData)
     let prompt = a+" + "+b;
     console.log(prompt);
     d.user_prompt = prompt;
@@ -336,7 +337,7 @@ function getType(a,b){
                 return;
             }
             let data = await res.json()
-            resolve(data)
+            resolve(data.output)
         }).catch((e)=>{
             console.error("playground request failed with",e)
             reject(e)
