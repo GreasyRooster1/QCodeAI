@@ -112,24 +112,6 @@ class InfiniCraftPlayground extends PlaygroundType{
     }
 
     onRunTrigger() {
-        this.showSpinner(".playground-ai-text")
-        this.hideError()
-        this.makeRequest("/ai/generate","POST",{
-            provider:this.getInput("provider"),
-            temperature:this.getInput("temp"),
-            user_prompt:this.getInput("text-input"),
-            top_p:0.95,
-            frequency_penalty:0.3,
-            system_prompt:SAFETY_SYS_PROMPT
-            ,
-        }).then(data=>{
-            console.log(data)
-            this.hideSpinner()
-            document.querySelector(".playground-ai-text")!.innerHTML = data.output;
-        }).catch(e=>{
-            this.hideSpinner()
-            this.showError(".playground-ai-text","An error occurred generating your response!")
-        })
     }
 }
 
