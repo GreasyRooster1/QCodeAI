@@ -78,7 +78,6 @@ class InfiniCraftPlayground extends PlaygroundType{
         let data = {
             provider:this.getInput("provider"),
             temperature:this.getInput("temp"),
-            user_prompt:this.getInput("text-input"),
             top_p:this.getInput("top_p"),
             frequency_penalty:this.getInput("freq_penalty"),
             system_prompt:SAFETY_SYS_PROMPT,
@@ -316,8 +315,12 @@ function mouseReleased(){
 }
 
 function getType(a,b){
-    let data = aidata
-    data.user_prompt = a+" + "+b;
+    let d = {..aiData}
+    let prompt = a+" + "+b;
+    console.log(prompt);
+    d.user_prompt = prompt;
+    
+    console.log(d);
     return new Promise((resolve,reject)=>{
         fetch(AIAPI+"/ai/generate",{
             method:"POST",
@@ -325,7 +328,7 @@ function getType(a,b){
                 "Content-Type":"application/json",
                 "Authorization":"Bearer "+token,
             },
-            body:JSON.stringify(data)
+            body:JSON.stringify(d)
         }).then(async res=>{
             if(!res.ok){
                 console.error("playground request returned not ok",res)
