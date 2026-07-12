@@ -91,19 +91,6 @@ class GameStudioPlayground extends PlaygroundType{
         this.frame.addEventListener("load", () => {
             this.onLoadedFrame()
         });
-        window.addEventListener("message", (event) => {
-            let log;
-            try {
-                log = JSON.parse(event.data);
-            }catch (error) {
-                return
-            }
-            console.log("received log from frame: "+log.type+" - "+log.message);
-
-            if(log.type=="log") {
-                document.querySelector(".combo-list")!.innerHTML += "<br/>"+log.message;
-            }
-        });
         this.onLoadedFrame()
         document.querySelector(".reset-button")!.remove()
     }
