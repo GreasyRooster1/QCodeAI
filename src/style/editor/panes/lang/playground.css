@@ -341,14 +341,13 @@ input[type="text"] {
     appearance: none;
 
     /* box */
-    flex: 1;
     display: block;
-    height: 40px;
     padding: 2px 10px;
     font: inherit;
     font-size: 15px;
     line-height: 1;
     color: var(--c-white);
+    width: fit-content;
     background-color: var(--playground-input-background);
 
     /* modern rounded edge + 1px light border */
@@ -356,6 +355,8 @@ input[type="text"] {
     border-radius: 10px;
 
     transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    flex: 1;
+    min-width: 80px;
 }
 
 input[type="text"]::placeholder {

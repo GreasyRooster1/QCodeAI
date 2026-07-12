@@ -61,7 +61,7 @@ class InfiniCraftPlayground extends PlaygroundType{
                 <iframe id="share-board-exec-frame" src="exec.html">
                 
                 </iframe>
-                <div class="playground-section" style="flex-shrink: 0">
+                <div class="playground-section" style="flex-shrink: 0; width:50%">
                     <div class="playground-rows">
                         <div>
                             <label for="background_color">Background color</label>
