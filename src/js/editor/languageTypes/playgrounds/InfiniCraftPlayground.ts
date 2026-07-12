@@ -113,7 +113,7 @@ class InfiniCraftPlayground extends PlaygroundType{
             top_p:this.getInput("top_p"),
             frequency_penalty:this.getInput("freq_penalty"),
             system_prompt:this.getInput("system_prompt"),
-            max_tokens:5,
+            max_tokens:10,
         }
         let serialData = JSON.stringify(data);
         console.log(this.getInput("background_color"))
