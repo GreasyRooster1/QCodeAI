@@ -9,7 +9,7 @@ class GameStudioPlayground extends PlaygroundType{
     private frame: HTMLIFrameElement | null | undefined;
     private iWindow: WindowProxy | null | undefined;
     constructor() {
-        super(false);
+        super(true);
         this.iWindow = null;
     }
 
@@ -36,9 +36,9 @@ class GameStudioPlayground extends PlaygroundType{
                     <iframe id="share-board-exec-frame" src="exec.html">
                 
                     </iframe>
-                    <div class="spinner-container">
+                </div>
+                <div class="spinner-container">
                     
-                    </div>
                 </div>
             </div>
             <div class="playground-section">    
@@ -105,18 +105,12 @@ class GameStudioPlayground extends PlaygroundType{
             }
         });
         this.onLoadedFrame()
-        document.querySelector(".reload-button")!.addEventListener("click", () => {
-            this.reloadGame()
-        })
         document.querySelector(".reset-button")!.remove()
     }
 
     serialize(): any {
         return {
             provider:this.getInput("provider"),
-            temperature:this.getInput("temp"),
-            top_p:this.getInput("top_p"),
-            frequency_penalty:this.getInput("freq_penalty"),
             user_prompt:this.getInput("text-input"),
         }
     }
@@ -124,17 +118,11 @@ class GameStudioPlayground extends PlaygroundType{
     deserialize(data:any) {
         console.log(data)
         this.setInput("provider", data.provider);
-        this.setInput("temp", data.temperature);
-        this.setInput("top_p", data.top_p);
-        this.setInput("freq_penalty", data.freq_penalty);
         this.setInput("text-input", data.user_prompt);
     }
 
     reset(){
         this.setInput("provider", "groq");
-        this.setInput("temp", 0.7);
-        this.setInput("top_p", 0.95);
-        this.setInput("freq_penalty", .3);
         this.setInput("text-input", "");
     }
 }
