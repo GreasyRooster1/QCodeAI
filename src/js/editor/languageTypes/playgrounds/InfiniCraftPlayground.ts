@@ -86,7 +86,7 @@ class InfiniCraftPlayground extends PlaygroundType{
                             </div>
                         </div>
                     </div>
-                    <div class="playground-button">Reload</div>
+                    <div class="playground-button reload-button">Reload</div>
                 </div>
             </div>
         `;
@@ -138,6 +138,9 @@ class InfiniCraftPlayground extends PlaygroundType{
             this.onLoadedFrame()
         });
         this.onLoadedFrame()
+        document.querySelector(".reload-button")!.addEventListener("click", () => {
+            this.frame?.contentWindow?.location.reload()
+        })
     }
 
     playgroundSetup(){
