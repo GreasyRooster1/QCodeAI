@@ -6,6 +6,7 @@ import {PythonType} from "./languageTypes/python/python";
 import {PlaygroundType} from "@js/editor/languageTypes/playground";
 import {LLMSandboxPlayground} from "@js/editor/languageTypes/playgrounds/LLMSandboxPlayground";
 import {InfiniCraftPlayground} from "@js/editor/languageTypes/playgrounds/InfiniCraftPlayground";
+import {GameStudioPlayground} from "@js/editor/languageTypes/playgrounds/GameStudioPlayground";
 
 const languageTypes = {
     "javascript": JavascriptType,
@@ -17,6 +18,7 @@ const languageTypes = {
     "playground": PlaygroundType,
     "llmsandbox": LLMSandboxPlayground,
     "infinicraft": InfiniCraftPlayground,
+    "gamestudio": GameStudioPlayground
 }
 
 export {languageTypes};
