@@ -203,9 +203,6 @@ class InfiniCraftPlayground extends PlaygroundType{
     }
 
     deserialize(data: any) {
-        if(!data){
-            return;
-        }
         this.setInput("provider", data.provider);
         this.setInput("temp", data.temperature);
         this.setInput("top_p", data.top_p);

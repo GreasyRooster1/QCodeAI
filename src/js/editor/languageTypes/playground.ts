@@ -101,6 +101,21 @@ class PlaygroundType extends ProjectType {
         return "javascript";
     }
 
+    onSave(){
+        let data = this.serialize();
+        set(ref(db,"userdata/"+getStoredUser().uid+"/projects/"+this.projectId+"/data"),data);
+    }
+
+    onLoad(): void {
+        get(ref(db,"userdata/"+getStoredUser().uid+"/projects/"+this.projectId+"/data")).then((snap)=>{
+            let data = snap.val();
+            if(!data){
+                return;
+            }
+            this.deserialize(data);
+        });
+    }
+
     getInput(key:string):any{
         let el = document.querySelector(`#${key}`) as HTMLInputElement
         let type = el?.tagName.toLowerCase();
@@ -223,18 +238,6 @@ class PlaygroundType extends ProjectType {
     /* unused overrides */
     setupEditorLanguage(){
         //dont setup any language
-    }
-
-    onSave(){
-        let data = this.serialize();
-        set(ref(db,"userdata/"+getStoredUser().uid+"/projects/"+this.projectId+"/data"),data);
-    }
-
-    onLoad(): void {
-        get(ref(db,"userdata/"+getStoredUser().uid+"/projects/"+this.projectId+"/data")).then((snap)=>{
-            let data = snap.val();
-            this.deserialize(data);
-        });
     }
 
     onRun(errorCallback:RunErrCallback) {
