@@ -148,7 +148,45 @@ class InfiniCraftPlayground extends PlaygroundType{
         this.setupFrame();
 
     }
+
+    serialize(): any {
+        return {
+            provider:this.getInput("provider"),
+            temperature:this.getInput("temp"),
+            top_p:this.getInput("top_p"),
+            frequency_penalty:this.getInput("freq_penalty"),
+            system_prompt:this.getInput("system_prompt"),
+
+            background_color:this.getInput("background_color"),
+            line_color:this.getInput("line_color"),
+            element_color:this.getInput("element_color"),
+            border_color:this.getInput("border_color"),
+            text_color:this.getInput("text_color"),
+
+        }
+    }
+
+    deserialize(data: any) {
+        this.setInput("provider", data.provider);
+        this.setInput("temp", data.temperature);
+        this.setInput("top_p", data.top_p);
+        this.setInput("freq_penalty", data.frequency_penalty);
+        this.setInput("system_prompt", data.system_prompt);
+
+        this.setInput("background_color", data.background_color);
+        this.setInput("line_color", data.line_color);
+        this.setInput("element_color", data.element_color);
+        this.setInput("border_color", data.border_color);
+        this.setInput("text_color", data.text_color);
+
+    }
 }
+
+
+
+
+
+
 
 const INFINI_RUNTIME_CODE = `
 
