@@ -102,12 +102,12 @@ class PlaygroundType extends ProjectType {
     }
 
     getInput(key:string):any{
-        let el = document.querySelector(`.playground-input #${key}`) as HTMLInputElement
+        let el = document.querySelector(`#${key}`) as HTMLInputElement
         let type = el?.tagName.toLowerCase();
         return el.value
     }
     setInput(key:string,value:any):any{
-        let el = document.querySelector(`.playground-input #${key}`) as HTMLInputElement
+        let el = document.querySelector(`#${key}`) as HTMLInputElement
         let type = el?.tagName.toLowerCase();
         el.value = value;
         const event = new Event('input', {});
