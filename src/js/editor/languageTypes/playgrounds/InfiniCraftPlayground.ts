@@ -89,7 +89,7 @@ class InfiniCraftPlayground extends PlaygroundType{
             this.iWindow?.postMessage(`
             let token = "${token}";
             const AIAPI = "${AIAPI}";
-            const aiData = ${serialData};
+            const aiData = "${serialData}";
             
             ${INFINI_RUNTIME_CODE}
             `);
@@ -313,25 +313,29 @@ function mouseReleased(){
 }
 
 function getType(a,b){
-    fetch(AIAPI+"/ai/generate",{
-        method:"POST",
-        headers:{
-            "Content-Type":"application/json",
-            "Authorization":"Bearer "+token,
-        },
-        body:JSON.stringify(data)
-    }).then(async res=>{
-        if(!res.ok){
-            console.error("playground request returned not ok",res)
-            reject(await res.text())
-            return;
-        }
-        let data = await res.json()
-        resolve(data)
-    }).catch((e)=>{
-        console.error("playground request failed with",e)
-        reject(e)
-    })
+    let data = aidata
+    data.user_prompt = a+" + "+b;
+    return new Promise((resolve:(value:any)=>void,reject)=>{
+        fetch(AIAPI+"/ai/generate",{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json",
+                "Authorization":"Bearer "+token,
+            },
+            body:JSON.stringify(data)
+        }).then(async res=>{
+            if(!res.ok){
+                console.error("playground request returned not ok",res)
+                reject(await res.text())
+                return;
+            }
+            let data = await res.json()
+            resolve(data)
+        }).catch((e)=>{
+            console.error("playground request failed with",e)
+            reject(e)
+        })
+    });
 }
 function mouseWheel(event){
   barOffset+=event.delta/10;
