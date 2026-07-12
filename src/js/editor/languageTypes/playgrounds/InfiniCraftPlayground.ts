@@ -195,8 +195,9 @@ class Element{
       if(collision(el.x,el.y,el.w,el.h,this.x,this.y,this.w,this.h)){
         this.dead=true;
         el.dead=true;
-        let type = getType(this.type,el.type);
-        elements.push(new Element(el.x,el.y,type));
+        getType(this.type,el.type).then((res)=>{
+            elements.push(new Element(el.x,el.y,res));
+        })
       }
     }
   }
