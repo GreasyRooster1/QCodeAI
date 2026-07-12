@@ -318,7 +318,7 @@ function mouseReleased(){
 function getType(a,b){
     let data = aidata
     data.user_prompt = a+" + "+b;
-    return new Promise((resolve:(value:any)=>void,reject)=>{
+    return new Promise((resolve,reject)=>{
         fetch(AIAPI+"/ai/generate",{
             method:"POST",
             headers:{
