@@ -70,9 +70,12 @@ class PlaygroundType extends ProjectType {
         document.querySelector(".output-pane")!.remove();
         document.querySelector(".pane-container")!.classList.add("playground-style-override")
 
-        document.querySelector(".playground-run-trigger")!.addEventListener("click",(e)=>{
-            this.onRunTrigger()
-        })
+        let trigger = document.querySelector(".playground-run-trigger")
+        if(trigger) {
+            trigger.addEventListener("click", (e) => {
+                this.onRunTrigger()
+            })
+        }
 
         document.querySelector(".reset-button")!.addEventListener("click",(e)=>{
             console.log("Reset button clicked!")

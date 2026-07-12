@@ -62,9 +62,6 @@ class InfiniCraftPlayground extends PlaygroundType{
                 
                 </iframe>
             </div>
-            <div class="playground-section">    
-                <div class="playground-button playground-run-trigger">Send</div>
-            </div>
         `;
 
 
@@ -103,12 +100,17 @@ class InfiniCraftPlayground extends PlaygroundType{
         this.startGame()
     }
 
-    playgroundSetup(){
+    setupFrame(){
         this.frame = (document.querySelector('#share-board-exec-frame') as HTMLIFrameElement);
         this.frame.addEventListener("load", () => {
             this.onLoadedFrame()
         });
         this.onLoadedFrame()
+    }
+
+    playgroundSetup(){
+        this.setupFrame();
+
     }
 
     onRunTrigger() {
