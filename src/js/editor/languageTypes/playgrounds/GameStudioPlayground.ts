@@ -24,9 +24,11 @@ class GameStudioPlayground extends PlaygroundType{
     static identifier = "gamestudio"
     private frame: HTMLIFrameElement | null | undefined;
     private iWindow: WindowProxy | null | undefined;
+    private currentCode: string;
     constructor() {
         super(true);
         this.iWindow = null;
+        this.currentCode = "";
     }
 
     getPlaygroundContent():string {
@@ -49,7 +51,7 @@ class GameStudioPlayground extends PlaygroundType{
                     <div class="playground-input">
                         <textarea id="text-input" name="text-input" rows="4" cols="50" placeholder="Type your message here..."></textarea>
                     </div>
-                    <div>
+                    <div class="playground-section">
                         <div class="playground-button reload-button">Reload</div>
                         <iframe id="share-board-exec-frame" src="exec.html">
                           
@@ -81,10 +83,11 @@ class GameStudioPlayground extends PlaygroundType{
             top_p:1.0,
             frequency_penalty:0.0,
             system_prompt:GAME_STUDIO_SYS_PROMPT+"\n\n\n"+SAFETY_SYS_PROMPT,
-            max_tokens:500,
+            max_tokens:5000,
         }).then(data=>{
             console.log(data)
             this.hideSpinner()
+            this.frame?.contentWindow?.location.reload()
             this.startGame(data.output)
         }).catch(e=>{
             this.hideSpinner()
@@ -97,12 +100,14 @@ class GameStudioPlayground extends PlaygroundType{
             return;
         }
         console.log(code);
+        this.currentCode = code;
         this.iWindow?.postMessage(code);
     }
 
     onLoadedFrame(){
         this.iWindow = this.frame?.contentWindow;
         console.log(this.iWindow);
+        this.startGame(this.currentCode);
     }
 
     setupFrame(){
