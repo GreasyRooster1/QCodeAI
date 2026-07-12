@@ -142,6 +142,7 @@ class InfiniCraftPlayground extends PlaygroundType{
         document.querySelector(".reload-button")!.addEventListener("click", () => {
             this.frame?.contentWindow?.location.reload()
         })
+        document.querySelector(".reset-button")!.remove()
     }
 
     playgroundSetup(){
