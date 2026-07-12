@@ -109,6 +109,11 @@ class InfiniCraftPlayground extends PlaygroundType{
             let token = "${token}";
             const AIAPI = "${AIAPI}";
             const aiData = \`${serialData}\`;
+            let backgroundCol = "${this.getInput("background_color")}"
+            let lineCol = "${this.getInput("line_color")}";
+            let elementCol = "${this.getInput("element_color")}"
+            let borderCol = "${this.getInput("border_color")}";
+            let textCol = "${this.getInput("text_color")}";
             
             ${INFINI_RUNTIME_CODE}
             `
@@ -159,18 +164,18 @@ class Element{
   draw(){
     textSize(20);
     
-    fill(7, 0, 15);
-    stroke(106, 0, 227);
+    fill(elementCol);
+    stroke(borderCol);
     strokeWeight(1);
     rect(this.x,this.y,this.w,this.h,5);
     
-    fill(255);
+    fill(textCol);
     text(this.type,this.x+7,this.y+6);
     textAlign(LEFT,TOP);
   }
   drawBorder(){
     noFill();
-    stroke(106, 0, 227);
+    stroke(borderCol);
     strokeWeight(sin(frameCount/25)*2+3);
     rect(this.x,this.y,this.w,this.h,5);
   }
@@ -226,7 +231,7 @@ function setup() {
 function draw() {
   mouseClicked = mouseIsPressed&&!lastMousePressed;
   
-  background(13, 0, 28);
+  background(backgroundCol);
   drawBackground();
   updateElements();
   drawBar();
@@ -236,7 +241,7 @@ function draw() {
 }
 
 function drawBar(){
-  fill(13, 0, 28);
+  fill(borderCol);
   rect(0,350,500,200);
   let cols = segmentDiscovered();
   drawDiscovered(cols);
@@ -276,7 +281,7 @@ function drawDiscovered(cols){
 
 function drawBackground(){
   let ratio = width/lineCount;
-  stroke(139, 38, 255);
+  stroke(lineCol);
   strokeWeight(.2);
   for(let i=0;i<lineCount;i++){
     line(i*ratio,0,i*ratio,width);
@@ -290,12 +295,12 @@ function drawEl(x,y,type){
   textSize(20);
   let w = textWidth(type)+14;
   
-  fill(7, 0, 15);
-  stroke(106, 0, 227);
+  fill(elementCol);
+  stroke(borderCol);
   strokeWeight(1);
   rect(x,y,w,30,5);
   
-  fill(255);
+  fill(textCol);
   text(type,x+7,y+6);
   textAlign(LEFT,TOP);
 
