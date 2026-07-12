@@ -65,16 +65,20 @@ class InfiniCraftPlayground extends PlaygroundType{
                     <div>
                         <div class="playground-rows">
                             <div>
-                            <input type="color" id="background_color" name="background_color" value="#e66465" />
-                            <label for="background_color">Background color</label>
+                                <label for="background_color">Background color</label>
+                                <input type="color" id="background_color" name="background_color" value="#e66465" />
                             </div>
                             <div>
-                            <input type="color" id="background_color" name="background_color" value="#e66465" />
-                            <label for="background_color">Background color</label>
+                                <label for="background_line_color">Line color</label>
+                                <input type="color" id="background_line_color" name="background_line_color" value="#e66465" />
                             </div>
                             <div>
-                            <input type="color" id="background_color" name="background_color" value="#e66465" />
-                            <label for="background_color">Background color</label>
+                                <label for="element_color">Element color</label>
+                                <input type="color" id="element_color" name="element_color" value="#e66465" />
+                            </div>
+                            <div>
+                                <label for="border_color">Border color</label>
+                                <input type="color" id="border_color" name="border_color" value="#e66465" />
                             </div>
                         </div>
                     </div>
