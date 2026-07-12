@@ -1,12 +1,16 @@
-import {PlaygroundType, SAFETY_SYS_PROMPT} from "@js/editor/languageTypes/playground";
+import {AIAPI, PlaygroundType, SAFETY_SYS_PROMPT} from "@js/editor/languageTypes/playground";
 import {ProjectType, RunErrCallback} from "@js/editor/languageTypes/projectType";
 import {Language} from "@js/editor/codeEditor";
 import {makeRequest} from "@js/editor/utils/cloudAgentAPI";
+import {getIdToken} from "@js/api/auth";
 
 class GameStudioPlayground extends PlaygroundType{
     static identifier = "gamestudio"
+    private frame: HTMLIFrameElement | null | undefined;
+    private iWindow: WindowProxy | null | undefined;
     constructor() {
         super(false);
+        this.iWindow = null;
     }
 
     getPlaygroundContent():string {
@@ -45,10 +49,10 @@ class GameStudioPlayground extends PlaygroundType{
         this.hideError()
         this.makeRequest("/ai/generate","POST",{
             provider:this.getInput("provider"),
-            temperature:this.getInput("temp"),
+            temperature:0.2,
             user_prompt:this.getInput("text-input"),
-            top_p:this.getInput("top_p"),
-            frequency_penalty:this.getInput("freq_penalty"),
+            top_p:1.0,
+            frequency_penalty:0.0,
             system_prompt:SAFETY_SYS_PROMPT
             ,
         }).then(data=>{
@@ -59,6 +63,45 @@ class GameStudioPlayground extends PlaygroundType{
             this.hideSpinner()
             this.showError(".playground-ai-text","An error occurred generating your response!")
         })
+    }
+
+    startGame(code){
+        if (this.iWindow === null) {
+            return;
+        }
+        console.log(code);
+        this.iWindow?.postMessage(code);
+    }
+
+    onLoadedFrame(){
+        this.iWindow = this.frame?.contentWindow;
+        console.log(this.iWindow);
+        this.startGame()
+    }
+
+    setupFrame(){
+        this.frame = (document.querySelector('#share-board-exec-frame') as HTMLIFrameElement);
+        this.frame.addEventListener("load", () => {
+            this.onLoadedFrame()
+        });
+        window.addEventListener("message", (event) => {
+            let log;
+            try {
+                log = JSON.parse(event.data);
+            }catch (error) {
+                return
+            }
+            console.log("received log from frame: "+log.type+" - "+log.message);
+
+            if(log.type=="log") {
+                document.querySelector(".combo-list")!.innerHTML += "<br/>"+log.message;
+            }
+        });
+        this.onLoadedFrame()
+        document.querySelector(".reload-button")!.addEventListener("click", () => {
+            this.reloadGame()
+        })
+        document.querySelector(".reset-button")!.remove()
     }
 
     serialize(): any {
