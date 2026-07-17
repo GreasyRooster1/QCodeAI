@@ -14,7 +14,7 @@ class LLMSandboxPlayground extends PlaygroundType{
             <div class="playground-title">LLM Sandbox</div>
             <div class="playground-section">
                 <div class="playground-rows">
-                    <div class="playground-input playground-provider">
+                    <div class="playground-input playground-providers">
                         
                     </div>
                     <div class="playground-input playground-slider">
