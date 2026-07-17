@@ -3,7 +3,7 @@ import {ProjectType, RunErrCallback} from "@js/editor/languageTypes/projectType"
 import {Language} from "@js/editor/codeEditor";
 import {makeRequest} from "@js/editor/utils/cloudAgentAPI";
 
-class LLMSandboxPlayground extends PlaygroundType{
+class LLMSimplePlayground extends PlaygroundType{
     static identifier = "llmsimple"
     constructor() {
         super(false);
@@ -71,4 +71,4 @@ class LLMSandboxPlayground extends PlaygroundType{
     }
 }
 
-export {LLMSandboxPlayground};
+export {LLMSimplePlayground};
