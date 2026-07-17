@@ -212,7 +212,7 @@ class PlaygroundType extends ProjectType {
     }
 
     loadProviders(){
-        document.querySelectorAll(".playground-provider").forEach(provider=>{
+        document.querySelectorAll(".playground-providers").forEach(provider=>{
             provider.innerHTML = `
             <label for="provider">Provider</label>
             <select name="provider" id="provider">
