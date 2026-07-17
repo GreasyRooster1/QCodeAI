@@ -136,6 +136,7 @@ class GameStudioPlayground extends PlaygroundType{
         this.setInput("provider", data.provider);
         this.setInput("text-input", data.user_prompt);
         this.currentCode = data.code;
+        this.startGame(this.currentCode);
     }
 
     reset(){
