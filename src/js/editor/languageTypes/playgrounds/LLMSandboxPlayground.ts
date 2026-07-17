@@ -14,13 +14,8 @@ class LLMSandboxPlayground extends PlaygroundType{
             <div class="playground-title">LLM Sandbox</div>
             <div class="playground-section">
                 <div class="playground-rows">
-                    <div class="playground-input">
-                        <label for="provider">Provider</label>
-                        <select name="provider" id="provider">
-                          <option value="groq">Groq</option>
-                          <option value="deepseekv4flash">Deepseek V4 Flash</option>
-                          <option value="kimi27code">Kimi 2.7 Code</option>
-                        </select>
+                    <div class="playground-input playground-provider">
+                        
                     </div>
                     <div class="playground-input playground-slider">
                         <label for="temp">Temperature</label>

@@ -63,6 +63,7 @@ class PlaygroundType extends ProjectType {
             </div>
         `;
 
+        this.loadProviders()
         if(!this.allowShare){
             document.querySelector(".share-button")?.remove();
         }
@@ -208,6 +209,19 @@ class PlaygroundType extends ProjectType {
             }
             resolve(data);
         });
+    }
+
+    loadProviders(){
+        document.querySelectorAll(".playground-provider").forEach(provider=>{
+            provider.innerHTML = `
+            <label for="provider">Provider</label>
+            <select name="provider" id="provider">
+              <option value="groq">Groq</option>
+              <option value="deepseekv4flash">Deepseek V4 Flash</option>
+              <option value="kimi27code">Kimi 2.7 Code</option>
+            </select>
+`
+        })
     }
 
     /* abstracts */
