@@ -18,8 +18,8 @@ class LLMSandboxPlayground extends PlaygroundType{
                         <label for="provider">Provider</label>
                         <select name="provider" id="provider">
                           <option value="groq">Groq</option>
-                          <option value="ollama">Ollama</option>
-                          <option value="openai">OpenAI</option>
+                          <option value="deepseekv4flash">Deepseek V4 Flash</option>
+                          <option value="kimi27code">Kimi 2.7 Code</option>
                         </select>
                     </div>
                     <div class="playground-input playground-slider">
