@@ -22,7 +22,7 @@ abstract class ProjectType {
     isLessonCreator:boolean;
     static identifier:string;
 
-    constructor(allowShare:boolean) {
+    protected constructor(allowShare:boolean) {
         this.allowShare = allowShare;
         this.chapterNum = 0;
         this.isLessonCreator = false;
@@ -146,4 +146,5 @@ abstract class ProjectType {
     }
 }
 
-export {ProjectType,RunErrCallback};
+export {ProjectType};
+export type { RunErrCallback };

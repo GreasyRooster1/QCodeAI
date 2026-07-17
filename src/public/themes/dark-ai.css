@@ -1,0 +1,372 @@
+:root{
+    --c-white:   #ffffff;
+    --c-gray-900: #e2e2e2;
+    --c-gray-850: #d2d2d2;
+    --c-gray-800: #c0c0c0;
+    --c-gray-700: #b4b4b4;
+    --c-gray-600: #999999;
+    --c-gray-500: #808080;
+    --c-gray-400: #686868;
+    --c-gray-300: #4d4d4d;
+    --c-gray-200: #2c2c2c;
+    --c-gray-100: #202020;
+    --c-gray-50: #141414;
+    --c-black:   #000000;
+
+    --c-purple-light: #7f4bff;
+    --c-purple-bright: #6f0ed1;
+    --c-purple-deep: #631aca;
+    --c-plum-section: #2e2a3e;
+    --c-plum-link: #3f3b51;
+    --c-plum-badge: #524259;
+
+    --c-error-bg: rgba(210, 22, 22, 0.39);
+    --c-error-solid: rgb(211, 48, 48);
+    --c-error-text: rgb(35, 2, 2);
+}
+
+/* Navbar (navbar.css) */
+:root{
+    --account-name-text: var(--c-white);
+    --account-dropdown-option: var(--c-gray-850);        /* was #d1d1d1 */
+
+    --account-dropdown-seperator: var(--c-gray-300);     /* was #4c4c4c */
+
+    --navbar-shrink-color: var(--c-gray-900);            /* was #eaeaea */
+
+    --generic-nav-button-color: var(--c-gray-200);       /* was #2e2e2e */
+
+    --points-display-background: #6f11df;
+    --points-display-text: var(--c-white);
+
+    --navbar-height:40px;
+    color: var(--c-gray-900);                            /* was #e3e3e3 */
+}
+
+/* Global (global.css) */
+:root{
+    --default-font: "JetBrains Mono";
+
+    --brand-blue:#350dc5;
+    --brand-green: #7720e1;
+    --brand-black: var(--c-black);
+    --brand-gray: var(--c-gray-600);
+
+    --common-rarity-color: var(--c-gray-300);            /* was #484848 */
+    --uncommon-rarity-color: #0091e1;
+    --rare-rarity-color: #9a25fa;
+    --legendary-rarity-color: #fac825;
+    --mythic-rarity-color: #36ffe1;
+
+    --common-rarity-color-dark: var(--c-gray-200);
+    --uncommon-rarity-color-dark: #00699f;
+    --rare-rarity-color-dark: #8313d6;
+    --legendary-rarity-color-dark: #d3ac0f;
+    --mythic-rarity-color-dark: #129a86;
+
+    --legendary-rarity-color-faded: rgba(170, 135, 20, 0.71);
+}
+
+/* Shared Project (sharedProject/index.css) */
+:root{
+    --code-pane-background: #0a0319;
+    --view-pane-background: var(--c-gray-200);           /* was #323232 */
+
+    --info-tab-background: #0e0c23;
+    --code-tab-background: #11071c;
+    --info-tab-color: #bcb6e4;
+    --code-tab-color: #cbbfe4;
+    --info-section-background: #0d0b20;
+
+    --info-inset-background: #242039;
+    --author-block-background: #392d57;
+
+    --tab-bar-background: var(--c-gray-200);             /* was #292929 */
+
+    --remix-button-color: #341aa8;
+    --remix-button-text-color: #e8ecef;
+
+    --original-title-border: #544bc8;
+
+    --lesson-card: #c9a4ec;
+    --lesson-button: #9c6de3;
+
+    --user-img-size:13vh;
+}
+.code-editor{
+    color: var(--c-black);
+}
+
+/* Share Board Global (shareBoard/global.css) */
+:root{
+    --stars-color: #edb90b;
+    --stars-text-color: #8a7009;
+    --likes-color: #f82062;
+    --likes-text-color: #9a0330;
+}
+
+/* Share Board (shareBoard/index.css) */
+:root{
+    --featured-project-bar-background: var(--c-gray-200);
+    --bulk-project-bar-background: var(--c-gray-200);    /* was #373737 — now matches featured bar */
+    --bar-seperator: var(--c-gray-300);                  /* was #535353 */
+    --interact-tray-background: var(--c-gray-200);       /* was #333333 */
+    --title-color-background: var(--c-gray-300);         /* was #474747 */
+
+    --open-icon-color: var(--c-black);
+    --open-icon-border-color: var(--c-white);
+
+    --bulk-project-overlay-background: rgba(0, 0, 0, 0.78);
+
+    --bar-seperator-height: 2px;
+}
+
+/* Login (login/login.css) */
+/* Ladder preserved: bg (b4) < pane (c0) < containers (d2) < inputs/buttons (e2) < hover (white) */
+:root{
+    --background-color: var(--c-gray-700);
+    --login-pane-color: var(--c-gray-800);               /* was #c2c2c2 */
+    --input-container-color: var(--c-gray-850);          /* was #cecece */
+    --input-wrapper-color: var(--c-gray-900);            /* was #e1e1e1 */
+
+    --button-container-color: var(--c-gray-850);
+    --button-color: var(--c-gray-900);
+    --button-color-hover: var(--c-white);               /* was #f1f1f1 */
+
+    --auth-container-color: var(--c-gray-850);
+
+    --admin-link-color: var(--c-gray-400);               /* was #626262 */
+
+    --auth-error-background: var(--c-error-bg);
+    --auth-error-solid: var(--c-error-solid);
+    --auth-error-text: var(--c-error-text);
+}
+
+/* Lessons (lessons/index.css) */
+:root {
+    --ui-tray-background: var(--c-white);
+    --ui-tray-border: var(--c-gray-600);                 /* was #9f9f9f */
+    --ui-tray-icons: var(--c-gray-300);                  /* was #474747 */
+
+    --canvas-background-color: var(--c-gray-100);        /* was #232323 — lesson cards now rely on their border */
+    --grid-color: var(--c-gray-300);                     /* was #575757 */
+    --canvas-text-color: var(--c-white);
+    --canvas-inverse-text-color: var(--c-white);
+    --canvas-lesson-card-border: var(--c-gray-500);      /* was #7f7f7f */
+    --canvas-lesson-card-background: var(--c-gray-100);
+    --canvas-started-accent: #491c97;
+    --canvas-completed-overlay: rgba(110, 31, 166, 0.47);
+    --canvas-locked-overlay:#00077; /* NOTE: 5-digit hex is invalid CSS — probably meant #000077 */
+    --canvas-button-border: #392253;
+    --canvas-line-color: var(--c-white);
+}
+
+/* Index (index/index.css) */
+:root{
+    --center-background: var(--c-gray-100);              /* was #1c1c1c */
+
+    --left-bar-background: var(--c-gray-200);            /* was #292929 */
+    --left-sections-background: var(--c-plum-section);
+
+    --right-bar-background: var(--c-gray-200);
+    --right-sections-background: #382a3e;
+
+    --project-link-background: #4a445c;
+    --project-link-text: var(--c-white);                /* was #f1f1f1 */
+    --project-date-text: #75698e;
+
+    --lessons-chart-link-background: var(--c-plum-link);
+    --lessons-recommended-background: var(--c-plum-link);
+
+    --badge-details-background: #45344a;
+    --badge-hover-color: var(--c-plum-badge);
+    --badge-color: var(--c-plum-badge);
+
+    --left-bar-accent: #6d5de1;
+    --left-bar-text-accent: #dde5e8;
+
+    --featured-project-thumb-background: rgba(0, 0, 0, 0.5);
+
+    --announcement-background: var(--c-gray-200);        /* was #2e2e2e */
+    --announcement-side-color: var(--c-gray-300);        /* was #474747 */
+    --announcement-content-background: var(--c-gray-200);/* was #303030 — side color + text carry the structure */
+    --announcement-content-text: var(--c-gray-850);      /* was #d8d8d8 */
+    --announcement-date-text: var(--c-gray-400);         /* was #686868 */
+
+    --points-progress-bar-background: var(--c-gray-500); /* was #858585 */
+    --points-progress-bar-fill: #5a2d71;
+
+    --status-display-text: var(--c-white);
+    --status-display-external: #ae3025;
+    --status-display-not-started: #38168e;
+    --status-display-started: #5a1895;
+
+    --footer-background: var(--c-gray-200);              /* was #353535 */
+    --footer-text-color: var(--c-gray-500);              /* was #878787 */
+
+    --badge-size:50px;
+
+    --share-board-more-button-color: #390b71;
+    --share-board-more-button-text-color: #eef9ff;
+
+    --new-project-popup-background: var(--c-plum-section);
+    --popup-inputs-background: #483f57;
+}
+
+/* Exec (exec/style.css) */
+/* Override elements directly */
+
+/* Editor Lang (editor/lang.css) */
+:root{
+    --code-editor-theme:"dracula"
+}
+
+/* Editor Main (editor/editor.css) */
+:root{
+    --pane-background: var(--c-gray-100);
+
+    --gutter-accent: var(--c-gray-300);                  /* was #505050 */
+    --gutter-main: var(--c-gray-200);                    /* was #333333 */
+
+    --step-background: var(--c-gray-50);                /* was #151515 */
+    --step-content-background: var(--c-gray-300);        /* was #4c4c4c */
+
+    --step-head-default: rgba(212, 17, 255, 0.44);
+
+    --step-info: rgba(118, 80, 230, 0.44);
+    --step-code: rgba(150, 98, 255, 0.44);
+    --step-challenge: rgba(255, 87, 87, 0.44);
+    --step-chapters: rgba(165, 165, 165, 0.44);
+    --step-check: rgba(186, 108, 255, 0.44);
+    --step-next: rgba(255, 175, 91, 0.44);
+    --step-build: rgba(122, 99, 255, 0.44);
+    --step-other: rgba(255, 255, 255, 0.44);
+
+    --step-type-background: var(--c-gray-300);           /* was #515151 — now equals step content (was only 5 apart) */
+
+    --code-editor-background: var(--c-gray-900);         /* was #e0e0e0 */
+
+    --run-button-background: var(--c-purple-bright);
+    --run-button-text-color: var(--c-white);
+
+    --stop-button-background: #d10e0e;
+    --stop-button-text-color: var(--c-white);
+
+    --save-button-background: #4a0ed1;
+    --save-button-text-color: var(--c-white);
+
+    --share-button-background: #7f21e4;
+    --share-button-text-color: var(--c-white);
+    --share-button-disabled-background: var(--c-gray-500);
+
+    --share-popup-background: var(--c-white);           /* was #efefef */
+    --share-project-name-input: var(--c-gray-850);       /* was #cfcfcf */
+
+    --close-button-text-color: var(--c-gray-400);        /* was #6a6a6a */
+
+    --send-button-background: var(--c-gray-600);         /* was #959595 */
+    --console-input-button-background: var(--c-gray-850);/* was #dcdcdc */
+
+    --log-error-background: rgba(255, 27, 27, 0.66);
+    --log-warn-background: rgba(255, 249, 84, 0.78);
+    --log-log-background: rgba(179, 179, 179, 0.85);
+
+    --log-error-solid: rgb(140, 6, 6);
+    --log-warn-solid: rgb(168, 143, 3);
+    --log-log-solid: var(--c-gray-300);                  /* was rgb(76, 74, 74) */
+
+    --save-alert-background: #1e143a;
+    --save-alert-accent: #38159f;
+
+    --chapter-link-color: #49cccd;
+    --chapter-link-color-hover: #26f7f8;
+
+    --step-code-text-background: #452e2f;
+    --step-code-text-color: #e37693;
+
+    --step-red-text-color: #ef0909;
+
+    --chapter-end-home-link-color: #836cff;
+    --scratch-steps-background: var(--c-gray-200);       /* was #292929 */
+}
+
+/* Editor Lesson Creator (editor/lessonCreator.css) */
+:root{
+    --lesson-creator-container-color: var(--c-gray-300); /* was #434343 */
+    --lesson-creator-button-color: var(--c-gray-100);    /* was #222222 */
+    --lesson-creator-meta-color: var(--c-gray-300);
+}
+
+/* Editor Arduino (editor/panes/lang/arduino.css) */
+:root{
+    --arduino-status-not-connected: var(--c-gray-600);   /* was #939393 */
+    --arduino-status-ok: var(--c-purple-bright);
+    --arduino-status-loading: #ffb617;
+}
+
+/* Editor Scratch (editor/panes/lang/scratch.css) */
+/* Override elements directly */
+
+/* Editor Web (editor/panes/lang/web.css) */
+:root{
+    --filesystem-sidebar: var(--c-gray-700);             /* was #b5b5b5 */
+    --filesystem-header: var(--c-gray-200);
+    --folder-icon-line: var(--c-gray-400);               /* was #636363 */
+    --current-file-view: var(--c-gray-300);              /* was #535252 */
+    --filesystem-background: var(--c-gray-600);          /* was #a8a8a8 */
+
+    --header-text: var(--c-white);                      /* was #ececec */
+    --current-file-view-text: var(--c-gray-900);         /* was #eaeaea */
+}
+
+/* Admin Login (adminLogin/admin.css) */
+/* Ladder preserved: bg (4d) < pane (68) < containers (80) < inputs/buttons (99) < hover (b4) */
+:root{
+    --background-color: var(--c-gray-300);               /* was #4f4f4f */
+    --login-pane-color: var(--c-gray-400);               /* was #6b6b6b */
+    --input-container-color: var(--c-gray-500);
+    --input-wrapper-color: var(--c-gray-600);            /* was #939393 */
+
+    --button-container-color: var(--c-gray-500);
+    --button-color: var(--c-gray-600);
+    --button-color-hover: var(--c-gray-700);             /* was #b0b0b0 */
+
+    --auth-container-color: var(--c-gray-500);
+
+    --auth-error-background: var(--c-error-bg);
+    --auth-error-solid: var(--c-error-solid);
+    --auth-error-text: var(--c-error-text);
+}
+
+/* Admin Console (adminConsole/adminConsole.css) */
+/* Ladder preserved: bg (4d) < main content (99) < content pane (b4); items (99) sit on the pane */
+:root{
+    --background-color: var(--c-gray-300);               /* was #555555 */
+    --main-content-background: var(--c-gray-600);        /* was #8f8f8f */
+    --content-pane-background: var(--c-gray-700);        /* was #b5b5b5 */
+
+    --data-item-color: var(--c-gray-600);                /* was #a3a3a3 */
+    --details-background: var(--c-gray-600);
+
+    --lesson-link-accent: #4a1ec6;
+    --lesson-link-unlisted-accent: #d32f2f;
+
+    --lesson-creator-button-color: var(--c-purple-deep);
+    --admin-button-color: var(--c-gray-600);             /* was #a1a1a1 */
+    --admin-button-color-hover: var(--c-gray-800);       /* was #bbbbbb */
+
+    --add-badge-button-color: var(--c-purple-deep);
+    --load-button-background: var(--c-gray-600);
+}
+
+/* Edit Profile (editProfile/index.css) */
+:root{
+    --page-background: var(--c-gray-50);                /* was #131313 */
+    --main-background: var(--c-gray-200);                /* was #292929 */
+
+    --rows: var(--c-gray-300);                           /* was #3e3e3e */
+
+    --profile-card: var(--c-gray-400);                   /* was #595959 — bumped a step so rows (4d) stay visible on it */
+    --advanced-line: var(--c-gray-600);                  /* was #8e8e8e */
+    --username-warning:#ff0000;
+}

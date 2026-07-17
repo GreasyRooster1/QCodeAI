@@ -3,6 +3,11 @@ import {WebType} from "./languageTypes/web/web";
 import {ArduinoType} from "./languageTypes/arduino/arduino";
 import {ScratchType} from "./languageTypes/scratch";
 import {PythonType} from "./languageTypes/python/python";
+import {PlaygroundType} from "@js/editor/languageTypes/playground";
+import {LLMSandboxPlayground} from "@js/editor/languageTypes/playgrounds/LLMSandboxPlayground";
+import {InfiniCraftPlayground} from "@js/editor/languageTypes/playgrounds/InfiniCraftPlayground";
+import {GameStudioPlayground} from "@js/editor/languageTypes/playgrounds/GameStudioPlayground";
+import {LLMSimplePlayground} from "@js/editor/languageTypes/playgrounds/LLMSimplePlayground";
 
 const languageTypes = {
     "javascript": JavascriptType,
@@ -10,6 +15,12 @@ const languageTypes = {
     "arduino": ArduinoType,
     "scratch": ScratchType,
     "python": PythonType,
+
+    "playground": PlaygroundType,
+    "llmsandbox": LLMSandboxPlayground,
+    "infinicraft": InfiniCraftPlayground,
+    "gamestudio": GameStudioPlayground,
+    "llmsimple": LLMSimplePlayground
 }
 
 export {languageTypes};

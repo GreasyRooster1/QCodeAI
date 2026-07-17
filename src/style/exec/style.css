@@ -2,7 +2,7 @@ body{
     overflow:clip;
     margin:0;
 
-    background: #7f7f7f;
+    background: transparent;
 }
 
 main{
@@ -17,4 +17,5 @@ main{
 #defaultCanvas0{
     background: white;
     margin:5%;
+    border-radius: 10px;
 }

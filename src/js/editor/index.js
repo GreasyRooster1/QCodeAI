@@ -13,6 +13,7 @@ import '@style/editor/panes/lang/web.css'
 import '@style/editor/panes/lang/arduino.css'
 import '@style/editor/panes/lang/scratch.css'
 import '@style/editor/panes/lang/python.css'
+import '@style/editor/panes/lang/playground.css'
 
 import {loadProjectFromUrlData} from "./load.js";
 import {setupAutoSave} from "./save.js";

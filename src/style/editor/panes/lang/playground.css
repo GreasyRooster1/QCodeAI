@@ -1,0 +1,469 @@
+:root{
+    --playground-background: var(--c-gray-100);
+    --playground-section-background: var(--c-gray-200);
+    --playground-section-border: var(--c-gray-400);
+
+    --playground-input-background: var(--c-gray-300);
+    --playground-input-text-color: var(--c-white);
+    --playground-select-hover: var(--c-purple-light);
+    --playground-select-border: var(--c-gray-400);
+    --playground-button-text:var(--c-white);
+    --playground-button-background: var(--c-purple-bright);
+    --playground-button-hover: var(--c-purple-light);
+    --playground-button-disabled: var(--c-gray-400);
+
+    --playground-slider-track: var(--c-gray-300);
+    --playground-slider-fill: var(--c-purple-bright);
+    --playground-slider-thumb: var(--c-white);
+    --playground-slider-thumb-border: var(--c-gray-700);
+    --playground-slider-thumb-active: var(--c-purple-deep);
+    --playground-slider-focus-ring: color-mix(in srgb, var(--c-purple-light) 33%, transparent);
+
+    --playground-spinner-background:var(--c-gray-300);
+    --playground-spinner-accent:var(--c-purple-light);
+
+    --playground-shelf-border: var(--c-gray-400);
+
+    --swatch-size: 3rem;
+    --swatch-radius: 0.5rem;
+    --swatch-border: 2px;
+    --playground-swatch-border-color: var(--c-gray-400);
+    --playground-swatch-border-hover: var(--c-gray-300);
+    --playground-swatch-ring: var(--c-purple-light);
+    --playground-swatch-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+
+    --playground-error:var(--c-error-solid)
+}
+
+.playground-main{
+    display: flex;
+    padding:8px;
+    background: var(--playground-background);
+    flex-direction: column;
+    height:-webkit-fill-available;
+    max-width:70vw;
+    flex:1;
+}
+.playground-main > div{
+    margin-top:8px;
+}
+
+.playground-section{
+    display: flex;
+    padding:10px;
+    background: var(--playground-section-background);
+    border: 1px solid var(--playground-section-border);
+    border-radius: 10px;
+    flex-direction: column;
+}
+
+.playground-rows{
+    display: flex;
+    flex-direction: row;
+}
+.playground-rows > *{
+    margin:8px;
+    flex:1
+}
+
+.playground-main label{
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+}
+.playground-input{
+    display: flex;
+    flex-direction: column;
+    flex:1
+}
+
+.playground-sep{
+    height: 0px;
+    border-top: 1px solid var(--playground-section-border);
+    background: var(--playground-section-border);
+    margin: 15px 10px;
+    flex:1;
+}
+
+.playground-style-override{
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+}
+
+.playground-style-override .code-pane{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.playground-title{
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+}
+
+.playground-button{
+    text-align: center;
+    color:var(--playground-button-text);
+    background: var(--playground-button-background);
+    padding:8px;
+    border-radius: 8px;
+    user-select: none;
+}
+.playground-button-small{
+    width: fit-content;
+}
+
+.playground-button:hover{
+    background: var(--playground-button-hover);
+}
+
+.playground-button:disabled{
+    background: var(--playground-button-disabled);
+}
+
+.playground-placeholder-text{
+    color: var(--c-gray-700);
+    font-style: italic;
+}
+
+.playground-error{
+    color:var(--playground-error);
+    font-style: italic;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.playground-spinner {
+    width: 20px;
+    height: 20px;
+    border: 8px solid var(--playground-spinner-background);      /* track color */
+    border-top-color: var(--playground-spinner-accent);      /* active arc color */
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+.playground-shelf{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom:8px;
+    margin:8px;
+    border-bottom: 1px solid var(--playground-shelf-border);
+    position:sticky;
+}
+
+.playground-shelf button{
+    margin-right:8px;
+}
+
+.playground-canvas-parent{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.playground-canvas-parent canvas{
+    flex: 1;
+    min-width: 0;
+    aspect-ratio: 16 / 9;
+    align-self: flex-start;;
+}
+
+iframe{
+    border: none;
+    flex:1;
+}
+
+.reset-button{
+    background: var(--share-button-background);
+    border:none;
+    border-radius: 5px;
+
+    font-size: 20px;
+    height:30px;
+    color:var(--share-button-text-color);
+}
+
+select {
+    /* strip the native look */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline:none;
+
+    /* box */
+    display: inline-block;
+    width: 100%;
+    padding: 10px 40px 10px 14px; /* room for the arrow on the right */
+    font: inherit;
+    font-size: 15px;
+    line-height: 1.4;
+    color: var(--playground-input-text-color);
+    background-color: var(--playground-input-background);
+
+    /* modern rounded edge + 1px light border */
+    border: 1px solid var(--playground-select-border);
+    border-radius: 10px;
+
+    /* custom chevron */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 16px;
+
+    cursor: pointer;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+select:hover {
+    border-color: var(--playground-select-hover);
+}
+
+select:focus {
+    outline: none;
+    border-color: var(--c-purple-light);
+    box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.25);
+}
+
+/* remove the dotted focus ring in Firefox */
+select:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #1f2937;
+}
+
+.playground-slider{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.playground-slider div{
+    display: flex;
+    flex-direction: row;
+    flex:1;
+    width:100%;
+}
+
+.playground-slider input{
+    flex:1;
+}
+
+.playground-slider span{
+    display: flex;
+    font-size: 14px;
+    font-weight: 500;
+    min-width: 34px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.playground-slider input {
+    -webkit-appearance: none;
+    appearance: none;
+    flex: 1;
+    height: 6px;
+    border-radius: 3px;
+    background: var(--playground-slider-track);
+    outline: none;
+    cursor: pointer;
+}
+
+/* Track */
+.playground-slider input::-webkit-slider-runnable-track {
+    height: 6px;
+    border-radius: 3px;
+    background: transparent;
+}
+.playground-slider input::-moz-range-track {
+    height: 6px;
+    border-radius: 3px;
+    background: var(--playground-slider-track);
+}
+.playground-slider input::-moz-range-progress {
+    height: 6px;
+    border-radius: 3px;
+    background: var(--playground-slider-fill);
+}
+
+/* Thumb */
+.playground-slider input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    margin-top: -7px;
+    border-radius: 50%;
+    background: var(--playground-slider-thumb);
+    border: 2px solid var(--playground-slider-thumb-border);
+    cursor: pointer;
+    transition: border-color .12s;
+}
+.playground-slider input::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--playground-slider-thumb);
+    border: 2px solid var(--playground-slider-thumb-border);
+    cursor: pointer;
+    transition: border-color .12s;
+}
+
+/* Purple border only while dragging */
+.playground-slider input:active::-webkit-slider-thumb {
+    border-color: var(--playground-slider-thumb);
+}
+.playground-slider input:active::-moz-range-thumb {
+    border-color: var(--playground-slider-thumb-active);
+}
+
+/* Focus ring */
+.playground-slider input:focus-visible::-webkit-slider-thumb {
+    box-shadow: 0 0 0 4px var(--playground-slider-focus-ring);
+}
+.playground-slider input:focus-visible::-moz-range-thumb {
+    box-shadow: 0 0 0 4px var(--playground-slider-focus-ring);
+}
+
+
+input[type="text"] {
+    /* strip native chrome */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    /* box */
+    display: block;
+    padding: 2px 10px;
+    font: inherit;
+    font-size: 15px;
+    line-height: 1;
+    color: var(--c-white);
+    width: fit-content;
+    background-color: var(--playground-input-background);
+
+    /* modern rounded edge + 1px light border */
+    border: 1px solid var(--playground-section-border);
+    border-radius: 10px;
+
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    flex: 1;
+    min-width: 80px;
+}
+
+input[type="text"]::placeholder {
+    color: var(--c-gray-80);
+}
+
+input[type="text"]:hover {
+    border-color: var(--c-gray-68);
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: var(--c-purple-bright);
+    box-shadow: 0 0 0 3px rgba(111, 14, 209, 0.25);
+}
+
+input[type="text"]:disabled {
+    background-color: var(--c-gray-20);
+    color: var(--c-gray-80);
+    cursor: not-allowed;
+}
+
+textarea {
+    /* strip native chrome */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    /* box */
+    flex:1;
+    display: block;
+    min-height: 96px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--c-white);
+    background-color: var(--playground-input-background);
+
+    /* modern rounded edge + 1px light border */
+    border: 1px solid var(--playground-section-border);
+    border-radius: 10px;
+
+    /* let users drag height only, not width */
+    resize: vertical;
+
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+textarea::placeholder {
+    color: var(--c-gray-80);
+}
+
+textarea:hover {
+    border-color: var(--c-gray-68);
+}
+
+textarea:focus {
+    outline: none;
+    border-color: var(--c-purple-bright);
+    box-shadow: 0 0 0 3px rgba(111, 14, 209, 0.25);
+}
+
+textarea:disabled {
+    background-color: var(--c-gray-20);
+    color: var(--c-gray-80);
+    cursor: not-allowed;
+}
+
+/* style the drag handle in WebKit (Chrome/Safari) */
+textarea::-webkit-resizer {
+    background: transparent;
+}
+
+input[type="color"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: var(--swatch-size);
+    padding: 0;
+    border: var(--swatch-border) solid var(--playground-swatch-border-color);
+    border-radius: var(--swatch-radius);
+    background: none;
+    box-shadow: var(--playground-swatch-shadow);
+    cursor: pointer;
+    transition: border-color 120ms, box-shadow 120ms;
+}
+
+input[type="color"]:hover {
+    border-color: var(--playground-swatch-border-hover);
+}
+
+input[type="color"]:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--playground-swatch-ring);
+}
+
+/* Strip the native chrome so the swatch fills the box */
+input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+input[type="color"]::-webkit-color-swatch {
+    border: none;
+    border-radius: calc(var(--swatch-radius) - var(--swatch-border));
+}
+input[type="color"]::-moz-color-swatch {
+    border: none;
+    border-radius: calc(var(--swatch-radius) - var(--swatch-border));
+}

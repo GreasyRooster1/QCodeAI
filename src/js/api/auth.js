@@ -116,6 +116,22 @@ function verifyCryptMetadata(data){
     assert(data.method,"rsa")
 }
 
+function getIdToken(forceRefresh) {
+    return new Promise((resolve, reject) => {
+        auth.currentUser?.getIdToken(forceRefresh).then(token => {
+            resolve(token);
+        }).catch(error => {
+            console.error("Error getting ID token, will force refresh: ", error);
+            auth.currentUser?.getIdToken(true).then(token => {
+                resolve(token);
+            }).catch(error => {
+                console.error("Couldn't refresh token after fail!: ", error);
+                reject(error);
+            })
+        })
+    })
+}
+
 export {
     extractUsernameFromEmail,
     extractEmailFromUsername,
@@ -125,5 +141,6 @@ export {
     storeUserPermissions,
     logOutUser,
     storeUser,
-    handleAuthErrors
+    handleAuthErrors,
+    getIdToken
 }
