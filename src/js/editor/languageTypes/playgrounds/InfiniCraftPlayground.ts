@@ -21,13 +21,7 @@ class InfiniCraftPlayground extends PlaygroundType{
             <div class="playground-title">Infini Craft Sandbox</div>
             <div class="playground-section">
                 <div class="playground-rows">
-                    <div class="playground-input">
-                        <label for="provider">Provider</label>
-                        <select name="provider" id="provider">
-                          <option value="groq">Groq</option>
-                          <option value="ollama">Ollama</option>
-                          <option value="openai">OpenAI</option>
-                        </select>
+                    <div class="playground-input playground-providers">
                     </div>
                     <div class="playground-input playground-slider">
                         <label for="temp">Temperature</label>

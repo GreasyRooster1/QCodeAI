@@ -37,13 +37,7 @@ class GameStudioPlayground extends PlaygroundType{
             <div class="playground-title">Game Studio</div>
             <div class="playground-section">
                 <div class="playground-rows">
-                    <div class="playground-input">
-                        <label for="provider">Provider</label>
-                        <select name="provider" id="provider">
-                          <option value="groq">Groq</option>
-                          <option value="ollama">Ollama</option>
-                          <option value="openai">OpenAI</option>
-                        </select>
+                    <div class="playground-input playground-providers">
                     </div>
                 </div>
             </div>
