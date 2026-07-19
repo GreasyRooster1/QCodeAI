@@ -1,23 +1,24 @@
 :root{
-    --background-color: #b4b4b4;
-    --login-pane-color: #c2c2c2;
-    --input-container-color: #cecece;
-    --input-wrapper-color: #e1e1e1;
+    --background-color: #191919;
+    --login-pane-color: #232323;
+    --input-container-color: transparent;
+    --input-wrapper-color: #323232;
 
-    --button-container-color: #cecece;
-    --button-color: #e1e1e1;
-    --button-color-hover: #f1f1f1;
+    --button-container-color: transparent;
+    --button-color: var(--brand-green);
+    --button-color-hover: #913ff4;
 
-    --auth-container-color: #cecece;
+    --auth-container-color: transparent;
 
     --admin-link-color: #626262;
 
-    --auth-error-background: rgba(210, 22, 22, 0.39);
-    --auth-error-solid: rgb(211, 48, 48);
-    --auth-error-text: rgb(35, 2, 2);
+    --auth-error-background: rgba(107, 22, 210, 0.39);
+    --auth-error-solid: rgb(121, 48, 211);
+    --auth-error-text: rgb(220, 190, 246);
 }
 
 body{
+    color:#ffffff;
     background: var(--background-color);
 }
 
@@ -50,6 +51,7 @@ body{
     background: var(--input-container-color);
     border-radius: 5px;
     padding:4px;
+    border: 2px solid var(--brand-green);
 }
 
 .input-wrapper{
