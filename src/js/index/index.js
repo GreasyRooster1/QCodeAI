@@ -36,7 +36,7 @@ function init(){
     initNavbar({
         hideHome:true,
     })
-    setupShareBoardFrame();
+    //setupShareBoardFrame();
     // addProfileListener()
 
     loadBadges();
@@ -46,7 +46,7 @@ function init(){
     loadUserData();
 
     displayVersion();
-    initShareBoard();
+    //initShareBoard();
     // setupFeaturedProject()
     setupNewProjectEvents()
 

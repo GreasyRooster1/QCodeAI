@@ -10,7 +10,8 @@ import {createGutterBlocks, setupDefaultPanes} from "../panes";
 import Split from "split.js";
 
 
-const AIAPI = "http://127.0.0.1:8000/api"
+// @ts-ignore
+const AIAPI = import.meta.env.PROD?"https://qcodeaiapi-backup.dillonjw.com":"http://127.0.0.1:8000/api"
 
 const SAFETY_SYS_PROMPT = `
 It is of upmost importance that you respond in a manner that is easy to understand and that is not offensive.
