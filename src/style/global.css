@@ -25,7 +25,7 @@
 }
 
 :root{
-    --c-white:   #000000;
+    --c-white:   #ffffff;
     --c-gray-900: #1c1c1c;
     --c-gray-850: #2d2d2d;
     --c-gray-800: #3f3f3f;
@@ -90,7 +90,7 @@ body{
 
     --navbar-shrink-color: var(--c-gray-900);            /* was #eaeaea */
 
-    --generic-nav-button-color: var(--c-gray-200);       /* was #2e2e2e */
+    --generic-nav-button-color: var(--c-gray-800);       /* was #2e2e2e */
 
     --points-display-background: #6f11df;
     --points-display-text: var(--c-white);
