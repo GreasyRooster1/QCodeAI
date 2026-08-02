@@ -1,12 +1,9 @@
 const requiredUserData = [
     {name:"projects",val:{
-            "bouncing-rainbow-squares":{
-                name:"Bouncing Rainbow Squares",
-                code:"\n\nfunction setup() {\n\n}\n\nfunction draw() {\n\n}\n",
-                currentChapter:0,
-                currentStep:1,
-                lessonId:"bouncing-rainbow-squares",
+            "intro-to-ai":{
+                name:"Intro to AI",
                 timestamp:Date.now()/1000,
+                language:"llmsimple",
             }
         }},
     {name:"badges",val:{0:{id:"user"}}},
