@@ -11,6 +11,7 @@ const requiredUserData = [
         }},
     {name:"badges",val:{0:{id:"user"}}},
     {name:"points",val:0},
+    {name:"theme",val:"dark-ai"},
     {name:"spentPoints",val:0},
     {name:"profileIcon",val:"https://github.com/GreasyRooster1/QCodeStatic/blob/main/Global/user.png?raw=true"},
 ]
