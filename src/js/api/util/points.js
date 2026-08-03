@@ -5,6 +5,7 @@ import {get, ref, set} from "firebase/database";
 function reCalculateUserPoints(exitFunc){
     get(ref(db,"userdata/"+getStoredUser().uid+"/badges")).then((snap)=>{
         let data = snap.val();
+        console.log(data);
         let badges = data.values().toArray().filter(b => b!==undefined);
         let totalPoints = 0;
         let count = 0;

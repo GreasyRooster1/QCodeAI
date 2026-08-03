@@ -330,7 +330,12 @@ function getTagColor(tag){
         "art":"#2399cc",
         "simulation":"#23cc3f",
         "exercise":"#cca523",
-        "hard":"#cc234a"
+        "hard":"#cc234a",
+        "language model":"#f42cc2",
+        "training":"#2399cc",
+        "images":"#23cc3f",
+        "prompts":"#cca523",
+        "challenge":"#cc234a",
     }
     let id = tag.toLowerCase();
     let col = tagColors[id]
