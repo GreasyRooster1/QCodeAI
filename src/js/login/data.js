@@ -1,10 +1,10 @@
 const requiredUserData = [
     {name:"projects",val:{
-            "intro-to-ai":{
+            "day1-intro-to-ai":{
                 name:"Intro to AI",
                 timestamp:Date.now()/1000,
                 language:"llmsimple",
-                lessonId:"none",
+                lessonId:"day1-intro-to-ai",
             }
         }},
     {name:"badges",val:{0:{id:"user"}}},
