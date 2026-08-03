@@ -5,6 +5,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import {auth, db} from "../api/firebase.js";
 import {extractEmailFromUsername, handleAuthErrors, storeUser} from "../api/auth.js";
 import {get, ref, set,update} from "firebase/database";
+import {requiredUserData} from "@js/login/data.js";
 
 
 const loginButton = document.querySelector(".login-button");

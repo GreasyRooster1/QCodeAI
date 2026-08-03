@@ -3,6 +3,8 @@ const requiredUserData = [
             "day1-intro-to-ai":{
                 name:"Intro to AI",
                 timestamp:Date.now()/1000,
+                currentStep:1,
+                currentChapter:0,
                 language:"llmsimple",
                 lessonId:"day1-intro-to-ai",
             }
