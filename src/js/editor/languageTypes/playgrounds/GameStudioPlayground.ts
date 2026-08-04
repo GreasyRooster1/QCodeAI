@@ -48,6 +48,9 @@ class GameStudioPlayground extends PlaygroundType{
                 <div class="playground-rows" style="flex:1">
                     <div class="playground-input">
                         <textarea id="text-input" name="text-input" rows="4" cols="50" placeholder="Type your message here..."></textarea>
+                        <div class="stream-output playground-section" style="color:#888888; font-style: italic; height: 50%; margin-top:8px; overflow-y: scroll">
+                        
+                        </div>
                     </div>
                     <div class="playground-section">
                         <div class="playground-button reload-button">Reload</div>
@@ -74,7 +77,8 @@ class GameStudioPlayground extends PlaygroundType{
     onRunTrigger() {
         this.showSpinner(".spinner-container")
         this.hideError()
-        this.makeRequest("/ai/generate","POST",{
+        let streamOut = document.querySelector(".stream-output")!;
+        this.makeStreamRequest("/ai/stream","POST",{
             provider:this.getInput("provider"),
             temperature:0.2,
             user_prompt:this.getInput("text-input"),
@@ -82,7 +86,15 @@ class GameStudioPlayground extends PlaygroundType{
             frequency_penalty:0.0,
             system_prompt:GAME_STUDIO_SYS_PROMPT+"\n\n\n"+SAFETY_SYS_PROMPT,
             max_tokens:20_000,
-        }).then(data=>{
+        }).then(async ([decoder,data])=>{
+            for await (let chunk of data) {
+                // @ts-ignore
+                const textChunk = decoder.decode(chunk, { stream: true });
+                let chunk = JSON.parse(textChunk);
+
+                console.log("Received chunk:", textChunk);
+                streamOut.innerHTML += `${chunk.content}`;
+            }
             console.log(data)
             this.hideSpinner()
             this.frame?.contentWindow?.location.reload()
