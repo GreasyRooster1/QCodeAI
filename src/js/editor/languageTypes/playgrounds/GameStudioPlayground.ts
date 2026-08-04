@@ -19,6 +19,7 @@ some common p5js functions include:
 - background(red,green,blue) -> clears the screen with a color
 the screen is 500 by 500 pixels
 dont call createCanvas()
+NEVER MAKE CREATIVE DECISIONS ON YOUR OWN. MAKE THE PROGRAM EXACTLY HOW THE USER DESCRIBES. IF A CRITICAL PART OF THE PROGRAM REQUIRES A CREATIVE DECISION MAKE SURE ITS A PLACEHOLDER (eg. white color, rectangle graphic)
 `;
 
 class GameStudioPlayground extends PlaygroundType{
