@@ -180,6 +180,34 @@ class PlaygroundType extends ProjectType {
         })
     }
 
+    makeStreamRequest(url:string,method:string,data:any){
+        return new Promise((resolve:(value:any)=>void,reject)=>{
+            getIdToken().then(token=>{
+                fetch(AIAPI+url,{
+                    method:method,
+                    headers:{
+                        "Content-Type":"application/json",
+                        "Authorization":"Bearer "+token,
+                    },
+                    body:JSON.stringify(data)
+                }).then(async res=>{
+                    if(!res.ok){
+                        console.error("playground request returned not ok",res)
+                        reject(await res.text())
+                        return;
+                    }
+
+                    const decoder = new TextDecoder("utf-8");
+
+                    resolve([decoder,res.body]);
+                }).catch((e)=>{
+                    console.error("playground request failed with",e)
+                    reject(e)
+                })
+            }).catch((e)=>{reject(e)})
+        })
+    }
+
     showSpinner(sel:string){
         let content = "<div class=\"playground-spinner\"></div>"
         document.querySelector(sel)!.innerHTML = content;
