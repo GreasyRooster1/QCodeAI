@@ -20,6 +20,8 @@ some common p5js functions include:
 the screen is 500 by 500 pixels
 dont call createCanvas()
 NEVER MAKE CREATIVE DECISIONS ON YOUR OWN. MAKE THE PROGRAM EXACTLY HOW THE USER DESCRIBES. IF A CRITICAL PART OF THE PROGRAM REQUIRES A CREATIVE DECISION MAKE SURE ITS A PLACEHOLDER (eg. white color, rectangle graphic)
+NEVER MAKE A GAME DESIGN DECISION, IF THE USER DOES NOT ASK FOR A FEATURE STRICTLY DONT INCLUDE IT. THIS INCLUDES MENUS, SCORE, GRAPHICS.
+NEVER MAKE A GAME JUST OFF THE JUST THE NAME OF THE GAME (eg. dont recreate flappy bird if they just ask for a flappy bird game)
 `;
 
 class GameStudioPlayground extends PlaygroundType{
