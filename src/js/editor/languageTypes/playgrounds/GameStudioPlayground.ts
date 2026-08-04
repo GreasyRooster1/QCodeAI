@@ -85,7 +85,7 @@ class GameStudioPlayground extends PlaygroundType{
             top_p:1.0,
             frequency_penalty:0.0,
             system_prompt:GAME_STUDIO_SYS_PROMPT+"\n\n\n"+SAFETY_SYS_PROMPT,
-            max_tokens:20_000,
+            max_tokens:5_000,
         }).then(async ([decoder,data])=>{
             for await (let chunk of data) {
                 // @ts-ignore
