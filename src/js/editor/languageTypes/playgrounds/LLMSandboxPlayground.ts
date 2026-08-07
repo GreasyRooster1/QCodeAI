@@ -60,10 +60,10 @@ class LLMSandboxPlayground extends PlaygroundType{
         this.hideError()
         this.makeRequest("/ai/generate","POST",{
             provider:this.getInput("provider"),
-            temperature:this.getInput("temp"),
+            temperature:+this.getInput("temp"),
             user_prompt:this.getInput("text-input"),
-            top_p:this.getInput("top_p"),
-            frequency_penalty:this.getInput("freq_penalty"),
+            top_p:+this.getInput("top_p"),
+            frequency_penalty:+this.getInput("freq_penalty"),
             system_prompt:SAFETY_SYS_PROMPT
             ,
         }).then(data=>{
@@ -79,9 +79,9 @@ class LLMSandboxPlayground extends PlaygroundType{
     serialize(): any {
         return {
             provider:this.getInput("provider"),
-            temperature:+this.getInput("temp"),
-            top_p:+this.getInput("top_p"),
-            frequency_penalty:+this.getInput("freq_penalty"),
+            temperature:this.getInput("temp"),
+            top_p:this.getInput("top_p"),
+            frequency_penalty:this.getInput("freq_penalty"),
             user_prompt:this.getInput("text-input"),
         }
     }
