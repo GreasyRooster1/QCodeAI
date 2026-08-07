@@ -79,9 +79,9 @@ class LLMSandboxPlayground extends PlaygroundType{
     serialize(): any {
         return {
             provider:this.getInput("provider"),
-            temperature:this.getInput("temp"),
-            top_p:this.getInput("top_p"),
-            frequency_penalty:this.getInput("freq_penalty"),
+            temperature:+this.getInput("temp"),
+            top_p:+this.getInput("top_p"),
+            frequency_penalty:+this.getInput("freq_penalty"),
             user_prompt:this.getInput("text-input"),
         }
     }
