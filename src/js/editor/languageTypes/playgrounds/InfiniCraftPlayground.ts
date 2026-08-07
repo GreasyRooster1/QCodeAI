@@ -103,9 +103,9 @@ class InfiniCraftPlayground extends PlaygroundType{
 
         let data = {
             provider:this.getInput("provider"),
-            temperature:this.getInput("temp"),
-            top_p:this.getInput("top_p"),
-            frequency_penalty:this.getInput("freq_penalty"),
+            temperature:+this.getInput("temp"),
+            top_p:+this.getInput("top_p"),
+            frequency_penalty:+this.getInput("freq_penalty"),
             system_prompt:this.getInput("system_prompt"),
             max_tokens:10,
         }
