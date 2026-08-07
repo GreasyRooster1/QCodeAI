@@ -8,6 +8,7 @@ import {LLMSandboxPlayground} from "@js/editor/languageTypes/playgrounds/LLMSand
 import {InfiniCraftPlayground} from "@js/editor/languageTypes/playgrounds/InfiniCraftPlayground";
 import {GameStudioPlayground} from "@js/editor/languageTypes/playgrounds/GameStudioPlayground";
 import {LLMSimplePlayground} from "@js/editor/languageTypes/playgrounds/LLMSimplePlayground";
+import {LLMAdvancedPlayground} from "@js/editor/languageTypes/playgrounds/LLMAdvancedPlayground";
 
 const languageTypes = {
     "javascript": JavascriptType,
@@ -20,7 +21,8 @@ const languageTypes = {
     "llmsandbox": LLMSandboxPlayground,
     "infinicraft": InfiniCraftPlayground,
     "gamestudio": GameStudioPlayground,
-    "llmsimple": LLMSimplePlayground
+    "llmsimple": LLMSimplePlayground,
+    "llmadvanced": LLMAdvancedPlayground
 }
 
 export {languageTypes};
